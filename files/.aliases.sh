@@ -1,3 +1,4 @@
+alias cat='batcat'
 alias ga='git add'
 alias gb='git branch -v'
 alias gc='git commit'
