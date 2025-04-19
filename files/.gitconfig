@@ -1,15 +1,15 @@
 [core]
-        editor = code --wait
-        autocrlf = input
+	editor = code --wait
+	autocrlf = input
 [merge]
-        ff = false
+	ff = false
 [pull]
-        ff = only
+	ff = only
 [user]
-        name = ile-24556
-        email = 110268848+ile-24556@users.noreply.github.com
+	name = ile-24556
+	email = 110268848+ile-24556@users.noreply.github.com
 [init]
-        defaultBranch = main
+	defaultBranch = main
 [credential "https://github.com"]
 	helper = 
 	helper = !/usr/bin/gh auth git-credential
