@@ -101,8 +101,8 @@ alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo
 # ~/.bash_aliases, instead of adding them here directly.
 # See /usr/share/doc/bash-doc/examples in the bash-doc package.
 
-if [ -f ~/.bash_aliases ]; then
-    . ~/.bash_aliases
+if [[ -f ~/.aliases ]]; then
+  . ~/.aliases
 fi
 
 # enable programmable completion features (you don't need to enable
@@ -117,22 +117,6 @@ if ! shopt -oq posix; then
 fi
 
 
-
-# Aliases
-alias ga='git add'
-alias gb='git branch -v'
-alias gc='git commit'
-alias gd='git diff'
-alias gl='git log --oneline'
-alias gll='git log'
-alias glsf='git ls-files'
-alias grs='git restore'
-alias grst='git reset'
-alias gs='git status --short'
-alias gsh='git show'
-alias gsl='git status'
-alias gw='git switch'
-alias py='python3 -X utf8 -X warn_default_encoding'
 
 . "$HOME/.cargo/env"
 
