@@ -1,17 +1,19 @@
 #!/bin/bash
 set -eu
 
-cd "$(dirname "${0}")/files"
-readonly files_dir="$(pwd)"
+cd "$(dirname "${0}")"
+readonly project_root="$(pwd)"
 
 link() {
-  local file="${1}"
-  local target_dir="${2:-${HOME}}"
+  local to_be_linked="${1}"
+  local link_name="${2:-${HOME}}/$(basename "${to_be_linked}")"
 
-  rm -f "${target_dir}/${file}"
-  ln -s "${files_dir}/${file}" "${target_dir}/${file}"
+  rm -rf "${link_name}"
+  ln -s "${to_be_linked}" "${link_name}"
 }
 
-for file in .*; do
+for file in "$(pwd)"/files/.*; do
   link "${file}"
 done
+
+link "$(pwd)"/git "${HOME}/.config/"
