@@ -127,3 +127,7 @@ export PATH="$VOLTA_HOME/bin:$PATH"
 . "$HOME/.local/bin/env"
 
 eval "$(starship init bash)"
+
+if [[ "$(uname -r)" =~ -microsoft-standard-WSL2$ ]]; then
+  export GH_BROWSER='/mnt/c/Windows/explorer.exe'
+fi
