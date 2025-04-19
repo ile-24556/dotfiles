@@ -34,6 +34,9 @@ zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 
 source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
+source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets)
+
 if [[ -f ~/.aliases.sh ]]; then
   . ~/.aliases.sh
 fi
