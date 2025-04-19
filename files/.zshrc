@@ -1,5 +1,5 @@
-if [[ -f ~/.aliases ]]; then
-  . ~/.aliases
+if [[ -f ~/.aliases.sh ]]; then
+  . ~/.aliases.sh
 fi
 
 . "$HOME/.cargo/env"
