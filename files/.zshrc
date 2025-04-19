@@ -32,6 +32,8 @@ zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 
 
 
+source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+
 if [[ -f ~/.aliases.sh ]]; then
   . ~/.aliases.sh
 fi
