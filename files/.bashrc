@@ -145,3 +145,5 @@ export PATH="$VOLTA_HOME/bin:$PATH"
 
 # uv
 . "$HOME/.local/bin/env"
+
+eval "$(starship init bash)"
