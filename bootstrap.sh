@@ -8,7 +8,6 @@ if ! grep -q 'NAME="Ubuntu"' /etc/os-release ; then
 fi
 
 cd "$(dirname "${0}")"
-readonly project_root="$(pwd)"
 
 link() {
   local to_be_linked="${1}"
