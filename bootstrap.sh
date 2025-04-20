@@ -1,6 +1,12 @@
 #!/bin/bash
 set -eu
 
+# Expects Ubuntu
+if ! grep -q 'NAME="Ubuntu"' /etc/os-release ; then
+  echo 'Unexpected environment'
+  exit 1
+fi
+
 cd "$(dirname "${0}")"
 readonly project_root="$(pwd)"
 
