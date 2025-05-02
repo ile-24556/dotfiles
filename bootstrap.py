@@ -48,6 +48,13 @@ def link(targets_dir: Path, links_dir: Path, pretends: bool, logger: logging.Log
             link_name.symlink_to(target)
 
 
+def remove_file(path: Path, pretends: bool, logger: logging.Logger):
+    """Remove a file."""
+    logger.info(f"Removing {path}")
+    if not pretends:
+        path.unlink(missing_ok=True)
+
+
 def main():
     logger = get_logger()
 
@@ -68,6 +75,8 @@ def main():
     home = Path.home()
     link(repo_dir / "home", home, pretends, logger)
     link(repo_dir / "xdg_config_home", home / ".config", pretends, logger)
+
+    remove_file(home / ".gitconfig", pretends, logger)
 
     logger.info("Done")
 
