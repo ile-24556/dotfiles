@@ -131,3 +131,5 @@ eval "$(starship init bash)"
 if [[ "$(uname -r)" =~ -microsoft-standard-WSL2$ ]]; then
   export GH_BROWSER='/mnt/c/Windows/explorer.exe'
 fi
+
+echo 'You are using Bash; Zsh is recommended' >&2
