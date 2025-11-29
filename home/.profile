@@ -26,8 +26,6 @@ if [ -d "$HOME/.local/bin" ] ; then
     PATH="$HOME/.local/bin:$PATH"
 fi
 
-# Cargo
-. "$HOME/.cargo/env"
 
 # Volta
 export VOLTA_HOME="$HOME/.volta"
@@ -35,3 +33,6 @@ export PATH="$VOLTA_HOME/bin:$PATH"
 
 # uv
 . "$HOME/.local/bin/env"
+
+# rustup
+. "/home/ile/.local/share/cargo/env"

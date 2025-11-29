@@ -10,7 +10,7 @@ HISTFILE=~/.zsh_history
 
 # Use modern completion system
 autoload -Uz compinit
-compinit
+compinit -d "${XDG_CACHE_HOME}/zsh/zcompdump-${ZSH_VERSION}"
 
 zstyle ':completion:*' auto-description 'specify: %d'
 zstyle ':completion:*' completer _expand _complete _correct _approximate
@@ -32,6 +32,9 @@ zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 
 
 
+source "${HOME}/.config/zsh/export-xdg-directories.sh"
+source "${XDG_CONFIG_HOME}/zsh/export-xdg-based-variables.sh"
+
 source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
@@ -41,9 +44,6 @@ if [[ -f ~/.aliases.sh ]]; then
   . ~/.aliases.sh
 fi
 
-. "$HOME/.cargo/env"
-
-export VOLTA_HOME="$HOME/.volta"
 export PATH="$VOLTA_HOME/bin:$PATH"
 
 . "$HOME/.local/bin/env"
@@ -55,3 +55,6 @@ if [[ "$(uname -r)" =~ -microsoft-standard-WSL2$ ]]; then
 fi
 
 export BAT_THEME='Nord'
+
+# rustup
+. "/home/ile/.local/share/cargo/env"
