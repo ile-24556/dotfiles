@@ -2,6 +2,11 @@
 #
 # Make directories for each app to comform to XDG Base Directory Specification.
 
+if ! [[ "$(uname -r)" =~ -microsoft-standard-WSL2$ ]]; then
+  echo "Unexpected system: $(uname -r)" >&2
+  exit 1
+fi
+
 source "./home/.config/zsh/export-xdg-directories.sh"
 source "./home/.config/zsh/export-xdg-based-variables.sh"
 
