@@ -118,8 +118,12 @@ fi
 
 
 
+source "${HOME}/.config/zsh/export-xdg-directories.sh"
+source "${XDG_CONFIG_HOME}/zsh/export-xdg-based-variables.sh"
+
+. "${XDG_CONFIG_HOME}/zsh/aliases.sh"
+
 # Volta
-export VOLTA_HOME="$HOME/.volta"
 export PATH="$VOLTA_HOME/bin:$PATH"
 
 # uv
