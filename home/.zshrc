@@ -32,6 +32,8 @@ zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 
 
 
+export PATH="/snap/bin:${PATH}"
+
 source "${HOME}/.config/zsh/export-xdg-directories.sh"
 source "${XDG_CONFIG_HOME}/zsh/export-xdg-based-variables.sh"
 
