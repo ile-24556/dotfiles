@@ -40,9 +40,7 @@ source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets)
 
-if [[ -f ~/.aliases.sh ]]; then
-  . ~/.aliases.sh
-fi
+. "${XDG_CONFIG_HOME}/zsh/aliases.sh"
 
 export PATH="$VOLTA_HOME/bin:$PATH"
 
