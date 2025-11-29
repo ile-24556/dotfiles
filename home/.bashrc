@@ -118,8 +118,7 @@ fi
 
 
 
-. "$HOME/.cargo/env"
-
+# Volta
 export VOLTA_HOME="$HOME/.volta"
 export PATH="$VOLTA_HOME/bin:$PATH"
 
@@ -133,3 +132,6 @@ if [[ "$(uname -r)" =~ -microsoft-standard-WSL2$ ]]; then
 fi
 
 echo 'You are using Bash; Zsh is recommended' >&2
+
+# rustup
+. "/home/ile/.local/share/cargo/env"
