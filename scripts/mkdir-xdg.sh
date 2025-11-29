@@ -1,3 +1,5 @@
+#!/bin/bash
+#
 # Make directories for each app to comform to XDG Base Directory Specification.
 
 source "./home/.config/zsh/export-xdg-directories.sh"
