@@ -3,10 +3,14 @@ setopt histignorealldups sharehistory
 # Use emacs keybindings even if our EDITOR is set to vi
 bindkey -e
 
+# Set environment variables for XDG directories
+source "${HOME}/.config/zsh/export-xdg-directories.sh"
+source "${XDG_CONFIG_HOME}/zsh/export-xdg-based-variables.sh"
+
 # Keep 1000 lines of history within the shell and save it to ~/.zsh_history:
 HISTSIZE=1000
 SAVEHIST=1000
-HISTFILE=~/.zsh_history
+export HISTFILE="${XDG_STATE_HOME}/zsh/history"
 
 # Use modern completion system
 autoload -Uz compinit
@@ -33,9 +37,6 @@ zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 
 
 export PATH="/snap/bin:${PATH}"
-
-source "${HOME}/.config/zsh/export-xdg-directories.sh"
-source "${XDG_CONFIG_HOME}/zsh/export-xdg-based-variables.sh"
 
 source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 

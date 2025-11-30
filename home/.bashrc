@@ -15,9 +15,14 @@ HISTCONTROL=ignoreboth
 # append to the history file, don't overwrite it
 shopt -s histappend
 
+# Set environment variables for XDG directories
+source "${HOME}/.config/zsh/export-xdg-directories.sh"
+source "${XDG_CONFIG_HOME}/zsh/export-xdg-based-variables.sh"
+
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
 HISTSIZE=1000
 HISTFILESIZE=2000
+export HISTFILE="${XDG_STATE_HOME}/bash/history"
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
@@ -119,9 +124,6 @@ fi
 
 
 export PATH="/snap/bin:${PATH}"
-
-source "${HOME}/.config/zsh/export-xdg-directories.sh"
-source "${XDG_CONFIG_HOME}/zsh/export-xdg-based-variables.sh"
 
 . "${XDG_CONFIG_HOME}/zsh/aliases.sh"
 

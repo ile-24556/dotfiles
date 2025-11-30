@@ -1,9 +1,6 @@
 # Export environment variables for each app
 # to comform to XDG Base Directory Specification.
 
-# ~/.bash_history
-export HISTFILE="${XDG_STATE_HOME}/bash/history"
-
 # ~/.cargo
 export CARGO_HOME="${XDG_DATA_HOME}/cargo"
 
@@ -35,6 +32,3 @@ export W3M_DIR="${XDG_DATA_HOME}/w3m"
 
 # ~/.wget-hsts
 alias wget="wget --hsts-file=$XDG_DATA_HOME/wget-hsts"
-
-# ~/.zsh_history
-export HISTFILE="${XDG_STATE_HOME}/zsh/history"
