@@ -38,9 +38,12 @@ zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 
 export PATH="/snap/bin:${PATH}"
 
-source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+# Originally '/usr/share'
+readonly ZSH_PLUGIN_DATA_HOME="${XDG_DATA_HOME}/zsh/plugins"
 
-source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source "${ZSH_PLUGIN_DATA_HOME}/zsh-autosuggestions/zsh-autosuggestions.zsh"
+
+source "${ZSH_PLUGIN_DATA_HOME}/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets)
 
 . "${XDG_CONFIG_HOME}/zsh/aliases.sh"
