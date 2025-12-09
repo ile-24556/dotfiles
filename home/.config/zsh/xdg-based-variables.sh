@@ -12,6 +12,7 @@ export GOPATH="${XDG_DATA_HOME}/go"
 
 # ~/.lesshst
 export LESSHISTFILE="${XDG_STATE_HOME}/lesshst"
+test -f "${HOME}/.lesshst" && mv "${HOME}/.lesshst" "${LESSHISTFILE}"
 
 # ~/.npm
 export NPM_CONFIG_INIT_MODULE="${XDG_CONFIG_HOME}/npm/config/npm-init.js"

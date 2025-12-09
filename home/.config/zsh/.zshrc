@@ -4,17 +4,20 @@ setopt histignorealldups sharehistory
 bindkey -e
 
 # Set environment variables for XDG directories
-source "${HOME}/.config/zsh/export-xdg-directories.sh"
-source "${XDG_CONFIG_HOME}/zsh/export-xdg-based-variables.sh"
+source "${HOME}/.config/zsh/xdg-directories.sh"
+source "${XDG_CONFIG_HOME}/zsh/xdg-based-variables.sh"
 
 # Keep 1000 lines of history within the shell and save it to ~/.zsh_history:
 HISTSIZE=1000
 SAVEHIST=1000
 export HISTFILE="${XDG_STATE_HOME}/zsh/history"
+test -d "${XDG_STATE_HOME}/zsh" || mkdir -p "${XDG_STATE_HOME}/zsh"
 
 # Use modern completion system
 autoload -Uz compinit
 compinit -d "${XDG_CACHE_HOME}/zsh/zcompdump-${ZSH_VERSION}"
+# ~/.zcompdump
+test -d "${XDG_CACHE_HOME}/zsh" || mkdir -p "${XDG_CACHE_HOME}/zsh"
 
 zstyle ':completion:*' auto-description 'specify: %d'
 zstyle ':completion:*' completer _expand _complete _correct _approximate
