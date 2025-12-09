@@ -1,0 +1,3 @@
+function log
+    echo [(date --iso-8601=seconds)] $argv
+end
