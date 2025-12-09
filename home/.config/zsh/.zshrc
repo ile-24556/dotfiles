@@ -44,8 +44,18 @@ export PATH="/snap/bin:${PATH}"
 # Originally '/usr/share'
 readonly ZSH_PLUGIN_DATA_HOME="${XDG_DATA_HOME}/zsh/plugins"
 
+if ! [[ -f "${ZSH_PLUGIN_DATA_HOME}/zsh-autosuggestions/zsh-autosuggestions.zsh.zwc" ]]; then
+  echo 'Compiling zsh-autosuggestions files'
+  source "${XDG_CONFIG_HOME}/zsh/zcompile-plugin.sh"
+  zcompile_plugin_files 'zsh-autosuggestions'
+fi
 source "${ZSH_PLUGIN_DATA_HOME}/zsh-autosuggestions/zsh-autosuggestions.zsh"
 
+if ! [[ -f "${ZSH_PLUGIN_DATA_HOME}/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh.zwc" ]]; then
+  echo 'Compiling zsh-syntax-highlighting files'
+  source "${XDG_CONFIG_HOME}/zsh/zcompile-plugin.sh"
+  zcompile_plugin_files 'zsh-syntax-highlighting'
+fi
 source "${ZSH_PLUGIN_DATA_HOME}/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets)
 
