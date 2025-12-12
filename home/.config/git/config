@@ -8,6 +8,7 @@
 [user]
 	name = ile-24556
 	email = 110268848+ile-24556@users.noreply.github.com
+	signingkey = 615ADE97A99EFBC6
 [init]
 	defaultBranch = main
 [credential "https://github.com"]
@@ -16,3 +17,7 @@
 	helper = !/usr/bin/gh auth git-credential
 [diff]
 	wsErrorHighlight = all
+[commit]
+	gpgsign = true
+[tag]
+	gpgSign = true
