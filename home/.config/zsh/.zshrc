@@ -74,4 +74,4 @@ fi
 export BAT_THEME='Nord'
 
 # rustup
-. "/home/ile/.local/share/cargo/env"
+. "${XDG_DATA_HOME}/cargo/env"

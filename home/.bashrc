@@ -142,4 +142,4 @@ if [[ "$(uname -r)" =~ -microsoft-standard-WSL2$ ]]; then
 fi
 
 # rustup
-. "/home/ile/.local/share/cargo/env"
+. "${XDG_DATA_HOME}/cargo/env"

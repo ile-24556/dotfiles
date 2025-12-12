@@ -1,1 +1,1 @@
-source "$HOME/.local/share/../bin/env.fish"
+source $XDG_DATA_HOME/../bin/env.fish
