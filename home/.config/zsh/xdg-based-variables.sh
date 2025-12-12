@@ -10,6 +10,9 @@ export DOTNET_CLI_HOME="${XDG_DATA_HOME}/dotnet"
 # ~/go
 export GOPATH="${XDG_DATA_HOME}/go"
 
+# GnuPG
+export GNUPGHOME="${XDG_DATA_HOME}/gnupg"
+
 # ~/.lesshst
 export LESSHISTFILE="${XDG_STATE_HOME}/lesshst"
 test -f "${HOME}/.lesshst" && mv "${HOME}/.lesshst" "${LESSHISTFILE}"
