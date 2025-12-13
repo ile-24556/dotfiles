@@ -8,16 +8,14 @@ case $- in
       *) return;;
 esac
 
+source "${HOME}/.config/posix_shells/config.sh"
+
 # don't put duplicate lines or lines starting with space in the history.
 # See bash(1) for more options
 HISTCONTROL=ignoreboth
 
 # append to the history file, don't overwrite it
 shopt -s histappend
-
-# Set environment variables for XDG directories
-source "${HOME}/.config/zsh/xdg-directories.sh"
-source "${XDG_CONFIG_HOME}/zsh/xdg-based-variables.sh"
 
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
 HISTSIZE=1000
@@ -125,21 +123,4 @@ fi
 
 
 
-export PATH="/snap/bin:${PATH}"
-
-. "${XDG_CONFIG_HOME}/zsh/aliases.sh"
-
-# Volta
-export PATH="$VOLTA_HOME/bin:$PATH"
-
-# uv
-. "$HOME/.local/bin/env"
-
 eval "$(starship init bash)"
-
-if [[ "$(uname -r)" =~ -microsoft-standard-WSL2$ ]]; then
-  export GH_BROWSER='/mnt/c/Windows/explorer.exe'
-fi
-
-# rustup
-. "${XDG_DATA_HOME}/cargo/env"

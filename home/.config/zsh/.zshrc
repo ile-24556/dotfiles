@@ -3,9 +3,7 @@ setopt histignorealldups sharehistory
 # Use emacs keybindings even if our EDITOR is set to vi
 bindkey -e
 
-# Set environment variables for XDG directories
-source "${HOME}/.config/zsh/xdg-directories.sh"
-source "${XDG_CONFIG_HOME}/zsh/xdg-based-variables.sh"
+source "${HOME}/.config/posix_shells/config.sh"
 
 # Keep 1000 lines of history within the shell and save it to ~/.zsh_history:
 HISTSIZE=1000
@@ -39,8 +37,6 @@ zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 
 
 
-export PATH="/snap/bin:${PATH}"
-
 # Originally '/usr/share'
 readonly ZSH_PLUGIN_DATA_HOME="${XDG_DATA_HOME}/zsh/plugins"
 
@@ -59,19 +55,4 @@ fi
 source "${ZSH_PLUGIN_DATA_HOME}/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets)
 
-. "${XDG_CONFIG_HOME}/zsh/aliases.sh"
-
-export PATH="$VOLTA_HOME/bin:$PATH"
-
-. "$HOME/.local/bin/env"
-
 eval "$(starship init zsh)"
-
-if [[ "$(uname -r)" =~ -microsoft-standard-WSL2$ ]]; then
-  export GH_BROWSER='/mnt/c/Windows/explorer.exe'
-fi
-
-export BAT_THEME='Nord'
-
-# rustup
-. "${XDG_DATA_HOME}/cargo/env"

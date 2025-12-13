@@ -1,1 +1,1 @@
-../../zsh/aliases.sh
+../../posix_shells/aliases.sh
