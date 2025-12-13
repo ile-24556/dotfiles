@@ -15,9 +15,13 @@ export PATH="$VOLTA_HOME/bin:$PATH"
 # uv
 source "$HOME/.local/bin/env"
 
-# Allow GitHub CLI to start the default web browser on Windows from WSL shell
+# WSL-specific environment variables
 if [[ "$(uname -r)" =~ -microsoft-standard-WSL2$ ]]; then
+  # Allow GitHub CLI to start the default web browser on Windows from WSL shell
   export GH_BROWSER='/mnt/c/Windows/explorer.exe'
+
+  # Signing Git commits with GnuPG
+  export GPG_TTY="$(tty)"
 fi
 
 export BAT_THEME='Nord'
