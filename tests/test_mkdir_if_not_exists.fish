@@ -2,8 +2,9 @@ mkdir -p tmp/dir1 tmp/dir2
 touch tmp/file1 tmp/file2
 
 mkdir_if_not_exists tmp/dir3
-if not test -d tmp/dir2
+if not test -d tmp/dir3
     err Test failed on mkdir
+    return 5
 end
 
 set out (mkdir_if_not_exists tmp/dir1 2>&1 | string collect)
