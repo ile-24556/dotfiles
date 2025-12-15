@@ -36,7 +36,7 @@ repos:
   - id: fish-indent
     name: indent fish scripts
     language: unsupported
-    entry: fish_indent --check
+    entry: fish_indent --write
     files: ^.*\.fish$
   - id: test-fish-function-mkdir-if-not-exists
     name: test fish function mkdir_if_not_exists
