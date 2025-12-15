@@ -1,5 +1,3 @@
-#!/bin/bash
-#
 # Copy files of a Zsh plugin into $XDG_DATA_HOME and zcompile them.
 # Source this file and use the following function.
 
