@@ -30,3 +30,16 @@ repos:
   rev: v0.20.0
   hooks:
   - id: markdownlint-cli2
+
+- repo: local
+  hooks:
+  - id: fish-indent
+    name: indent fish scripts
+    language: unsupported
+    entry: fish_indent --check
+    files: ^.*\.fish$
+  - id: test-fish-function-mkdir-if-not-exists
+    name: test fish function mkdir_if_not_exists
+    language: unsupported
+    entry: fish tests/test_mkdir_if_not_exists.fish
+    files: ^.*mkdir_if_not_exists\.fish$
