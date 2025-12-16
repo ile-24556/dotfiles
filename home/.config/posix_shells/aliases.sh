@@ -27,3 +27,4 @@ alias la='ls -AF'
 alias ll='ls -alF'
 alias ls='ls --color=auto --time-style=long-iso'
 alias py='python3.14 -X utf8 -X warn_default_encoding'
+alias wget="wget --hsts-file=$XDG_DATA_HOME/wget-hsts"
