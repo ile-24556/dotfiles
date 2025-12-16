@@ -1,4 +1,6 @@
-alias cat='batcat'
+alias bat='batcat'
+alias bathelp='bat --plain --language=help'
+alias batman='bat --plain --language=man'
 alias ga='git add'
 alias gb='git branch -v'
 alias gbd='git branch -d'
