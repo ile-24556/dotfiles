@@ -24,8 +24,6 @@ if [[ "$(uname -r)" =~ -microsoft-standard-WSL2$ ]]; then
   export GPG_TTY="$(tty)"
 fi
 
-export BAT_THEME='Nord'
-
 # rustup
 source "${XDG_DATA_HOME}/cargo/env"
 
