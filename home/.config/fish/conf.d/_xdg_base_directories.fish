@@ -12,3 +12,4 @@ set -gx GNUPGHOME $XDG_DATA_HOME/gnupg
 set -gx GOPATH $XDG_DATA_HOME/go
 set -gx PYTHON_HISTORY $XDG_STATE_HOME/python/history
 set -gx RUSTUP_HOME $XDG_DATA_HOME/rustup
+set -gx W3M_DIR $XDG_DATA_HOME/w3m
