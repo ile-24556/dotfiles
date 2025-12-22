@@ -2,7 +2,9 @@ rm -rf tmp
 mkdir -p tmp/dir1 tmp/dir2
 touch tmp/file1 tmp/file2
 
-source home/.config/fish/functions/*.fish
+source home/.config/fish/functions/log.fish
+source home/.config/fish/functions/err.fish
+source home/.config/fish/functions/mkdir_if_not_exists.fish
 
 mkdir_if_not_exists tmp/dir3
 if not test -d tmp/dir3
