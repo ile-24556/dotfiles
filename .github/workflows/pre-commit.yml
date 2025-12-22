@@ -13,6 +13,18 @@ jobs:
       with:
         python-version: '3.14'
     - uses: fish-shop/install-fish-shell@v2
+
+    # Check shell environment
+    - run: ls -al --time-style=long-iso $GITHUB_WORKSPACE
+    - run: echo $SHELL
+    - run: echo $BASH_VERSION
+    - run: fish -c 'echo $FISH_VERSION'
+    - run: fish -c 'ls -al --time-style=long-iso $GITHUB_WORKSPACE'
+    - run: fish -c 'ls -al --time-style=long-iso $GITHUB_WORKSPACE/home/.config/fish/functions/*.fish'
+    - run: fish -c 'ls -al --time-style=long-iso $GITHUB_WORKSPACE/home/.config/**.fish'
+    - run: fish -c 'ls -al --time-style=long-iso home/.config/fish/functions/*.fish'
+    - run: fish -c 'ls -al --time-style=long-iso home/.config/**.fish'
+
     - uses: fish-shop/indent-check@v2
       with:
         patterns: '**.fish home/.config/fish/**.fish'
