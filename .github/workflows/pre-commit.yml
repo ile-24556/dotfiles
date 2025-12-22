@@ -13,4 +13,6 @@ jobs:
       with:
         python-version: '3.14'
     - uses: fish-shop/install-fish-shell@v2
+    - uses: fish-shop/indent-check@v2
+    - uses: fish-shop/syntax-check@v2
     - uses: pre-commit/action@v3.0.1
