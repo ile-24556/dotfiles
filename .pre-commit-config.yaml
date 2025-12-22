@@ -33,6 +33,18 @@ repos:
 
 - repo: local
   hooks:
+  - id: check-env
+    name: check pre-commit env
+    language: unsupported
+    entry: echo $SHELL
+  - id: check-env-2
+    name: check pre-commit env 2
+    language: unsupported
+    entry: fish -c 'echo $FISH_VERSION'
+  - id: check-env-3
+    name: check pre-commit env 3
+    language: unsupported
+    entry: fish -c 'ls home/.config/fish/functions/*.fish'
   - id: fish-indent
     name: indent fish scripts
     language: unsupported
