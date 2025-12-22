@@ -10,5 +10,5 @@ jobs:
     steps:
     - uses: actions/checkout@v6
     - uses: actions/setup-python@v6
-    - uses: pre-commit/action@v3.0
-    - uses: fish-shop/install-fish-shell@2
+    - uses: pre-commit/action@v3.0.1
+    - uses: fish-shop/install-fish-shell@v2
