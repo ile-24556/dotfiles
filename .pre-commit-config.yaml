@@ -43,4 +43,4 @@ repos:
     name: test fish function mkdir_if_not_exists
     language: unsupported
     entry: fish tests/test_mkdir_if_not_exists.fish
-    files: ^.*mkdir_if_not_exists\.fish$
+    files: ^.*/functions/[^/]+\.fish$
