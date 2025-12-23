@@ -38,14 +38,14 @@ repos:
     name: indent fish scripts
     language: unsupported
     entry: fish_indent --write
-    files: ^.*\.fish$
+    files: \.fish$
   - id: fish-syntax
     name: check fish syntax
     language: unsupported
     entry: fish --no-execute
-    files: ^.*\.fish$
+    files: \.fish$
   - id: test-fish-function-mkdir-if-not-exists
     name: test fish function mkdir_if_not_exists
     language: unsupported
     entry: fish tests/test_mkdir_if_not_exists.fish
-    files: ^.*/functions/[^/]+\.fish$
+    files: fish/functions/[^/]+\.fish$
