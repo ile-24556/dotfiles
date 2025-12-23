@@ -39,6 +39,11 @@ repos:
     language: unsupported
     entry: fish_indent --write
     files: ^.*\.fish$
+  - id: fish-syntax
+    name: check fish syntax
+    language: unsupported
+    entry: fish --no-execute
+    files: ^.*\.fish$
   - id: test-fish-function-mkdir-if-not-exists
     name: test fish function mkdir_if_not_exists
     language: unsupported
