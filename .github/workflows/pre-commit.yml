@@ -12,5 +12,7 @@ jobs:
     - uses: actions/setup-python@v6
       with:
         python-version: '3.14'
+        cache: 'pip'
+    - run: pip install pre-commit
     - uses: fish-shop/install-fish-shell@v2
-    - uses: pre-commit/action@v3.0.1
+    - run: pre-commit run --all
