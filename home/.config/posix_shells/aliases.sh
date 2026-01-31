@@ -1,4 +1,3 @@
-alias bat='batcat'
 alias bathelp='bat --plain --language=help'
 alias batman='bat --plain --language=man'
 alias ga='git add'
