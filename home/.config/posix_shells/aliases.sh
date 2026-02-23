@@ -1,3 +1,5 @@
+alias bh='bat --plain --language=help'
+alias bm='bat --plain --language=man'
 alias ga='git add'
 alias gb='git branch -v'
 alias gbd='git branch -d'
