@@ -8,7 +8,7 @@ case $- in
       *) return;;
 esac
 
-source "${HOME}/.config/posix_shells/config.sh"
+source "${HOME}/.config/bash/config.sh"
 
 # don't put duplicate lines or lines starting with space in the history.
 # See bash(1) for more options

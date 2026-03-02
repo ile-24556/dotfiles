@@ -1,1 +1,1 @@
-../../posix_shells/aliases.sh
+../../bash/aliases.sh

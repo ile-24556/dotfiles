@@ -3,8 +3,8 @@
 #
 
 # Set environment variables for XDG directories
-source "${HOME}/.config/posix_shells/xdg-directories.sh"
-source "${XDG_CONFIG_HOME}/posix_shells/xdg-based-variables.sh"
+source "${HOME}/.config/bash/xdg-directories.sh"
+source "${XDG_CONFIG_HOME}/bash/xdg-based-variables.sh"
 
 # snap
 export PATH="/snap/bin:${PATH}"
@@ -27,4 +27,4 @@ fi
 # rustup
 source "${XDG_DATA_HOME}/cargo/env"
 
-source "${XDG_CONFIG_HOME}/posix_shells/aliases.sh"
+source "${XDG_CONFIG_HOME}/bash/aliases.sh"
