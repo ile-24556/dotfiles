@@ -1,1 +1,1 @@
-source $XDG_DATA_HOME/cargo/env.fish
+source "$HOME/.cargo/env.fish"

@@ -25,6 +25,6 @@ if [[ "$(uname -r)" =~ -microsoft-standard-WSL2$ ]]; then
 fi
 
 # rustup
-source "${XDG_DATA_HOME}/cargo/env"
+. "$HOME/.cargo/env"
 
 source "${XDG_CONFIG_HOME}/bash/aliases.sh"

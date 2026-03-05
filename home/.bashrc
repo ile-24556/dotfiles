@@ -20,9 +20,6 @@ shopt -s histappend
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
 HISTSIZE=1000
 HISTFILESIZE=2000
-export HISTFILE="${XDG_STATE_HOME}/bash/history"
-test -d "${XDG_STATE_HOME}/bash" || mkdir -p "${XDG_STATE_HOME}/bash"
-test -f "${HISTFILE}" || touch "${HISTFILE}"
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
