@@ -3,3 +3,6 @@ if status is-interactive
 end
 
 mise activate fish | source
+
+# Sign Git commits with GnuPG
+set -gx GPG_TTY (tty)
