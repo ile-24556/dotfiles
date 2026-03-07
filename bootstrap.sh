@@ -1,7 +1,7 @@
 #!/bin/bash
 
-if ! [[ "$(uname -r)" =~ -microsoft-standard-WSL2$ ]]; then
-  echo "Unexpected system: $(uname -r)" >&2
+if [[ "$(uname --operating-system)" != "GNU/Linux" ]]; then
+  echo "Unexpected system: $(uname --all)" >&2
   return 1
 fi
 
