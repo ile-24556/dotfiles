@@ -1,4 +1,7 @@
 {
+  "files.associations": {
+    "**/ghostty/config": "properties",
+  },
   "[json]": {
     "editor.defaultFormatter": "dprint.dprint",
   },
