@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -eu
+
 if [[ "$(uname --operating-system)" != "GNU/Linux" ]]; then
   echo "Unexpected system: $(uname --all)" >&2
   return 1
