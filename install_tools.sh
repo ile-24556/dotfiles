@@ -1,0 +1,90 @@
+#!/bin/bash
+#
+#
+
+set -eu
+
+if ! grep -q 'ID=ubuntu' '/usr/lib/os-release'; then
+  echo "Unexpected system:
+----------------------------------------
+$(cat '/usr/lib/os-release')
+----------------------------------------" >&2
+  return 1 || exit 1
+fi
+
+sudo apt update && sudo apt upgrade -y
+
+########################################
+# fish shell
+########################################
+
+sudo add-apt-repository ppa:fish-shell/release-4
+sudo apt update
+sudo apt install -y \
+  fish \
+  git \
+  tree \
+
+chsh -s "$(command -v fish)"
+
+########################################
+# GitHub CLI
+########################################
+
+if ! command -v gh; then
+  echo 'Installing GitHub CLI ...'
+  # https://github.com/cli/cli/blob/trunk/docs/install_linux.md#debian
+  (type -p wget >/dev/null || (sudo apt update && sudo apt install wget -y)) \
+    && sudo mkdir -p -m 755 /etc/apt/keyrings \
+    && out=$(mktemp) && wget -nv -O$out https://cli.github.com/packages/githubcli-archive-keyring.gpg \
+    && cat $out | sudo tee /etc/apt/keyrings/githubcli-archive-keyring.gpg > /dev/null \
+    && sudo chmod go+r /etc/apt/keyrings/githubcli-archive-keyring.gpg \
+    && sudo mkdir -p -m 755 /etc/apt/sources.list.d \
+    && echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null \
+    && sudo apt update \
+    && sudo apt install gh -y
+fi
+
+########################################
+# Rust and tools written in Rust
+########################################
+
+# rustup
+if ! command -v rusup; then
+  echo 'Installing rustup ...'
+  # https://rust-lang.org/tools/install/
+  curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
+fi
+
+# Rust binaries
+if ! command -v cargo-binstall; then
+  echo 'Installing cargo-binstall ...'
+  curl -L --proto '=https' --tlsv1.2 -sSf https://raw.githubusercontent.com/cargo-bins/cargo-binstall/main/install-from-binstall-release.sh | bash -s -- -y
+fi
+
+echo 'Installing cargo binaries'
+cargo binstall --locked -y -- \
+  bat \
+  deno \
+  dprint \
+  mise \
+  oxipng \
+  ripgrep \
+  starship \
+  uv \
+  zellij \
+
+########################################
+# chezmoi
+########################################
+
+mise use --global chezmoi@2
+
+########################################
+# Completions
+########################################
+
+chezmoi completion fish > $HOME/.config/fish/completions/chezmoi.fish
+deno completions fish > $HOME/.config/fish/completions/deno.fish
+mise completion fish > $HOME/.config/fish/completions/mise.fish
+uv generate-shell-completion fish > $HOME/.config/fish/completions/uv.fish
