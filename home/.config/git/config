@@ -8,7 +8,7 @@
 [user]
 	name = ile-24556
 	email = 110268848+ile-24556@users.noreply.github.com
-	signingkey = 615ADE97A99EFBC6
+	signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDsL/5J2oS/vFsL9ggTIRVz5IepSM++pf0E2exopxJX6
 [init]
 	defaultBranch = main
 [credential "https://github.com"]
@@ -21,3 +21,7 @@
 	gpgsign = true
 [tag]
 	gpgSign = true
+[gpg]
+	format = ssh
+[gpg "ssh"]
+	program = "/mnt/c/Users/marun/AppData/Local/Microsoft/WindowsApps/op-ssh-sign-wsl.exe"
