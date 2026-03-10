@@ -90,6 +90,7 @@ uv generate-shell-completion fish > $HOME/.config/fish/completions/uv.fish
 # pre-commit
 ########################################
 
+cd "${HOME}/.local/share/chezmoi/"
 uv tool install pre-commit
 pre-commit install
 
