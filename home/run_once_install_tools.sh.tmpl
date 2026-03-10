@@ -1,16 +1,12 @@
 #!/bin/bash
 #
-#
+# Install tools for Ubuntu
+
+{{ if eq .chezmoi.osRelease.id "ubuntu" -}}
+
+echo 'This is Ubuntu; Installing tools.'
 
 set -eu
-
-if ! grep -q 'ID=ubuntu' '/usr/lib/os-release'; then
-  echo "Unexpected system:
-----------------------------------------
-$(cat '/usr/lib/os-release')
-----------------------------------------" >&2
-  return 1 || exit 1
-fi
 
 sudo apt update && sudo apt upgrade -y
 
@@ -18,8 +14,12 @@ sudo apt update && sudo apt upgrade -y
 # fish shell
 ########################################
 
-sudo add-apt-repository ppa:fish-shell/release-4
-sudo apt update
+if ! command -v fish; then
+  sudo apt install -y software-properties-common
+  sudo add-apt-repository ppa:fish-shell/release-4
+  sudo apt update
+fi
+
 sudo apt install -y \
   fish \
   git \
@@ -50,7 +50,7 @@ fi
 ########################################
 
 # rustup
-if ! command -v rusup; then
+if ! command -v rustup; then
   echo 'Installing rustup ...'
   # https://rust-lang.org/tools/install/
   curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
@@ -59,6 +59,7 @@ fi
 # Rust binaries
 if ! command -v cargo-binstall; then
   echo 'Installing cargo-binstall ...'
+  # https://github.com/cargo-bins/cargo-binstall?tab=readme-ov-file#linux-and-macos
   curl -L --proto '=https' --tlsv1.2 -sSf https://raw.githubusercontent.com/cargo-bins/cargo-binstall/main/install-from-binstall-release.sh | bash -s -- -y
 fi
 
@@ -75,12 +76,6 @@ cargo binstall --locked -y -- \
   zellij \
 
 ########################################
-# chezmoi
-########################################
-
-mise use --global chezmoi@2
-
-########################################
 # Completions
 ########################################
 
@@ -88,3 +83,9 @@ chezmoi completion fish > $HOME/.config/fish/completions/chezmoi.fish
 deno completions fish > $HOME/.config/fish/completions/deno.fish
 mise completion fish > $HOME/.config/fish/completions/mise.fish
 uv generate-shell-completion fish > $HOME/.config/fish/completions/uv.fish
+
+{{- else -}}
+
+echo 'This is not Ubuntu.'
+
+{{- end }}

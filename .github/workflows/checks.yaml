@@ -17,3 +17,8 @@ jobs:
       - uses: cargo-bins/cargo-binstall@main
       - run: cargo binstall -y dprint
       - run: dprint fmt
+  chezmoi-apply:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - run: sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply --source ./home --exclude scripts --include always
