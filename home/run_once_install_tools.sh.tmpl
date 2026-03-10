@@ -86,6 +86,13 @@ deno completions fish > $HOME/.config/fish/completions/deno.fish
 mise completion fish > $HOME/.config/fish/completions/mise.fish
 uv generate-shell-completion fish > $HOME/.config/fish/completions/uv.fish
 
+########################################
+# pre-commit
+########################################
+
+uv tool install pre-commit
+pre-commit install
+
 {{- else -}}
 
 echo 'This is not Ubuntu.'
