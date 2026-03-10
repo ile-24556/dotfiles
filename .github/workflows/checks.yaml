@@ -21,4 +21,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
-      - run: sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply --source ./home
+      - run: sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply --source ./home --exclude scripts --include always
