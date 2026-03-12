@@ -1,4 +1,15 @@
+# User libraries
+Desktop/
+Documents/
+Downloads/
+Music/
+Pictures/
+Public/
+Templates/
+Videos/
+
 {{ if eq .chezmoi.os "windows" }}
+!Documents/PowerShell/
 **/*.sh
 dot_config/bat/
 {{ else }}
