@@ -2,10 +2,10 @@
 #
 # Install tools for Ubuntu
 
-# {{- if ne .chezmoi.osRelease.id "ubuntu" }}
-echo 'You are not on Ubuntu; Exiting ...'
-exit
-# {{- end }}
+if ! grep -q 'ID=ubuntu' /usr/lib/os-release >/dev/null 2>&1; then
+  echo 'You are not on Ubuntu; Exiting ...'
+  exit
+fi
 
 echo 'Installing tools on Ubuntu.'
 
