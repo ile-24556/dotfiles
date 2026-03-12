@@ -2,9 +2,7 @@
 #
 # Install tools for Ubuntu
 
-{{ if eq .chezmoi.osRelease.id "ubuntu" -}}
-
-echo 'This is Ubuntu; Installing tools.'
+echo 'Installing tools on Ubuntu.'
 
 set -eu
 
@@ -93,9 +91,3 @@ uv generate-shell-completion fish > "${HOME}/.config/fish/completions/uv.fish"
 cd "${HOME}/.local/share/chezmoi/"
 uv tool install pre-commit
 pre-commit install
-
-{{- else -}}
-
-echo 'This is not Ubuntu.'
-
-{{- end }}

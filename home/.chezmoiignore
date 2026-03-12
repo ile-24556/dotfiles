@@ -3,3 +3,7 @@ dot_config/bat/
 {{ else }}
 AppData/Roaming/bat
 {{ end }}
+
+{{ if ne .chezmoi.osRelease.id "ubuntu" -}}
+ubuntu_install_tools.sh
+{{ end }}
