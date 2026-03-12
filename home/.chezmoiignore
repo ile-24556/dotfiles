@@ -1,9 +1,7 @@
 {{ if eq .chezmoi.os "windows" }}
+**/*.sh
 dot_config/bat/
 {{ else }}
-AppData/Roaming/bat
-{{ end }}
-
-{{ if ne .chezmoi.osRelease.id "ubuntu" -}}
-ubuntu_install_tools.sh
+**/*.ps1
+AppData
 {{ end }}

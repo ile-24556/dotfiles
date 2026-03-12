@@ -2,6 +2,11 @@
 #
 # Install tools for Ubuntu
 
+# {{- if ne .chezmoi.osRelease.id "ubuntu" }}
+echo 'You are not on Ubuntu; Exiting ...'
+exit
+# {{- end }}
+
 echo 'Installing tools on Ubuntu.'
 
 set -eu
