@@ -11,8 +11,8 @@ Videos/
 {{ if eq .chezmoi.os "windows" }}
 !Documents/PowerShell/
 **/*.sh
-dot_config/bat/
+.config/bat/
 {{ else }}
 **/*.ps1
-AppData
+AppData/
 {{ end }}
