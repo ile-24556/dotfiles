@@ -1,1 +1,3 @@
-source $XDG_DATA_HOME/../bin/env.fish
+if not contains "$HOME/.local/bin/" $PATH
+    set -x PATH "$HOME/.local/bin/" $PATH
+end
