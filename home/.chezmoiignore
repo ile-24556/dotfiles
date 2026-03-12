@@ -1,0 +1,5 @@
+{{ if eq .chezmoi.os "windows" }}
+dot_config/bat/
+{{ else }}
+AppData/Roaming/bat
+{{ end }}
