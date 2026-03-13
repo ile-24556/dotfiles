@@ -79,17 +79,6 @@ cargo binstall --locked -y -- \
   zellij \
 
 ########################################
-# Completions
-########################################
-
-mkdir -p "${HOME}/.config/fish/completions"
-
-chezmoi completion fish > "${HOME}/.config/fish/completions/chezmoi.fish"
-deno completions fish > "${HOME}/.config/fish/completions/deno.fish"
-mise completion fish > "${HOME}/.config/fish/completions/mise.fish"
-uv generate-shell-completion fish > "${HOME}/.config/fish/completions/uv.fish"
-
-########################################
 # pre-commit
 ########################################
 
