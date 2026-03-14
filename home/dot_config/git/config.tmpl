@@ -24,12 +24,10 @@
 [gpg]
 	format = ssh
 [gpg "ssh"]
-{{- if eq .chezmoi.os "linux" }}
-{{-   if (.chezmoi.kernel.osrelease | lower | contains "microsoft") }}
-	program = "/mnt/c/Users/marun/AppData/Local/Microsoft/WindowsApps/op-ssh-sign-wsl.exe"
-{{-   else }}
-	program = "/opt/1Password/op-ssh-sign"
-{{-   end }}
-{{-   else if eq .chezmoi.os "windows" }}
+{{- if eq .chezmoi.os "windows" }}
 	program = "C:/Users/marun/AppData/Local/Microsoft/WindowsApps/op-ssh-sign.exe"
+{{- else if contains "-microsoft-standard-WSL2" .chezmoi.kernel.osrelease }}
+	program = "/mnt/c/Users/marun/AppData/Local/Microsoft/WindowsApps/op-ssh-sign-wsl.exe"
+{{- else }}
+	program = "/opt/1Password/op-ssh-sign"
 {{- end }}
