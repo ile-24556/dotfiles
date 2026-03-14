@@ -2,5 +2,19 @@
 [cd]
 command = "pwsh.exe"
 {{ end -}}
+
+[data.git]
+{{ if eq .chezmoi.os "linux" -}}
+credential.github.helper = "!/usr/bin/gh auth git-credential"
+{{      if contains "-microsoft-standard-WSL2" .chezmoi.kernel.osrelease -}}
+gpg.ssh.program = "/mnt/c/Users/marun/AppData/Local/Microsoft/WindowsApps/op-ssh-sign-wsl.exe"
+{{     else -}}
+gpg.ssh.program = "/opt/1Password/op-ssh-sign"
+{{     end -}}
+{{ else if eq .chezmoi.os "windows" -}}
+credential.github.helper = "!'C:\\\\Program Files\\\\GitHub CLI\\\\gh.exe' auth git-credential"
+gpg.ssh.program = "C:/Users/marun/AppData/Local/Microsoft/WindowsApps/op-ssh-sign.exe"
+{{ end -}}
+
 [template]
 options = ["missingkey=zero"]

@@ -1,6 +1,7 @@
 {
   "files.associations": {
     "**/ghostty/config": "properties",
+    "**/git/config.tmpl": "properties",
   },
   "[json]": {
     "editor.defaultFormatter": "dprint.dprint",

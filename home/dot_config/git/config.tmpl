@@ -12,9 +12,9 @@
 [init]
 	defaultBranch = main
 [credential "https://github.com"]
-	helper = !/usr/bin/gh auth git-credential
+	helper = {{ .git.credential.github.helper }}
 [credential "https://gist.github.com"]
-	helper = !/usr/bin/gh auth git-credential
+	helper = {{ .git.credential.github.helper }}
 [diff]
 	wsErrorHighlight = all
 [commit]
@@ -24,10 +24,4 @@
 [gpg]
 	format = ssh
 [gpg "ssh"]
-{{- if eq .chezmoi.os "windows" }}
-	program = "C:/Users/marun/AppData/Local/Microsoft/WindowsApps/op-ssh-sign.exe"
-{{- else if contains "-microsoft-standard-WSL2" .chezmoi.kernel.osrelease }}
-	program = "/mnt/c/Users/marun/AppData/Local/Microsoft/WindowsApps/op-ssh-sign-wsl.exe"
-{{- else }}
-	program = "/opt/1Password/op-ssh-sign"
-{{- end }}
+	program = {{ .git.gpg.ssh.program | quote }}
