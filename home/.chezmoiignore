@@ -1,6 +1,5 @@
 # User libraries
 Desktop/
-Documents/
 Downloads/
 Music/
 Pictures/
@@ -9,11 +8,16 @@ Templates/
 Videos/
 
 {{ if eq .chezmoi.os "windows" }}
-!Documents/PowerShell/
 .config/bat/
 .config/fish/
+
+Documents/*
+!Documents/PowerShell/
+
 **/*.sh
 {{ else }}
 **/*.ps1
+
 AppData/
+Documents/
 {{ end }}
