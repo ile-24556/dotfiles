@@ -1,2 +1,6 @@
 .gitconfig
 .gitignore
+
+{{ if eq .chezmoi.os "windows" }}
+.config/fish/
+{{ end }}

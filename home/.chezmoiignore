@@ -10,8 +10,9 @@ Videos/
 
 {{ if eq .chezmoi.os "windows" }}
 !Documents/PowerShell/
-**/*.sh
 .config/bat/
+.config/fish/
+**/*.sh
 {{ else }}
 **/*.ps1
 AppData/
