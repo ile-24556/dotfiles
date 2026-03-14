@@ -1,3 +1,17 @@
+{{/* Defaults to Windows */ -}}
+{{$githubCredentialHelper := "!'C:\\\\Program Files\\\\GitHub CLI\\\\gh.exe' auth git-credential" -}}
+{{$sshSigningProgram := "C:/Users/marun/AppData/Local/Microsoft/WindowsApps/op-ssh-sign.exe" -}}
+
+{{if eq .chezmoi.os "linux" -}}
+	{{$githubCredentialHelper = "!/usr/bin/gh auth git-credential" -}}
+
+	{{if contains "-microsoft-standard-WSL2" .chezmoi.kernel.osrelease -}}
+		{{$sshSigningProgram = "/mnt/c/Users/marun/AppData/Local/Microsoft/WindowsApps/op-ssh-sign-wsl.exe" -}}
+	{{else -}}
+		{{$sshSigningProgram = "/opt/1Password/op-ssh-sign" -}}
+	{{end -}}
+{{end -}}
+
 [core]
 	editor = code --wait
 	autocrlf = input
@@ -12,9 +26,9 @@
 [init]
 	defaultBranch = main
 [credential "https://github.com"]
-	helper = {{ .git.credential.github.helper }}
+	helper = {{$githubCredentialHelper}}
 [credential "https://gist.github.com"]
-	helper = {{ .git.credential.github.helper }}
+	helper = {{$githubCredentialHelper}}
 [diff]
 	wsErrorHighlight = all
 [commit]
@@ -24,4 +38,4 @@
 [gpg]
 	format = ssh
 [gpg "ssh"]
-	program = {{ .git.gpg.ssh.program | quote }}
+	program = {{$sshSigningProgram | quote}}
