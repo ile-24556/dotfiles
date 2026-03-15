@@ -1,3 +1,0 @@
-function cmad --wraps='chezmoi add' --description 'alias cmad=chezmoi add'
-    chezmoi add $argv
-end

@@ -42,7 +42,5 @@ if ! shopt -oq posix; then
 fi
 
 
-
-source "${XDG_CONFIG_HOME:?}/fish/conf.d/aliases.fish"
-
+source "${HOME:?}/.aliases.sh"
 eval "$(starship init bash)"
