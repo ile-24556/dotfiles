@@ -16,6 +16,17 @@ function prepare_alias
 
     # Bash
     echo alias $name=\'$definition\' >>$srcd/dot_aliases.sh
+
+    # Make chezmoi git aliases from git aliases
+    set -l def_args (string split -m 1 -n ' ' -- $definition)
+    if test $def_args[1] = git
+        set -l cm_definition (string join -n ' ' -- chezmoi git '--' $def_args[2])
+        alias cm$name=$cm_definition
+        set -l cm_func_path $srcd/dot_config/fish/functions/cm$name.fish
+        echo '# Generated from a Git alias by prepare_alias' >$cm_func_path
+        functions cm$name >>$cm_func_path
+        echo alias cm$name=\'$cm_definition\' >>$srcd/dot_aliases.sh
+    end
 end
 
 prepare_alias cm chezmoi
