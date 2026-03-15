@@ -8,6 +8,7 @@ $Env:PYTHONUTF8 = 1
 $Env:PYTHONDEFAULTENCODING = 1 # doesn't work
 
 $Env:BAT_CONFIG_PATH = "$HOME\.config\bat\config"
+$Env:DPRINT_CONFIG_DIR = "$HOME\.config\dprint"
 
 # UTF-8で出力するプログラム（wavpack等）の文字化けを防ぐ - 2024-10-14
 [Console]::OutputEncoding = [System.Text.Encoding]::GetEncoding('utf-8')
