@@ -3,6 +3,12 @@
 rm -rf $HOME/.config/fish/functions/
 
 alias --save cm='chezmoi'
+alias --save cmad='chezmoi add'
+alias --save cmap='chezmoi apply'
+alias --save cmd='chezmoi diff'
+alias --save cmg='chezmoi git --'
+alias --save cmup='chezmoi update'
+alias --save g='git'
 alias --save ga='git add'
 alias --save gb='git branch -v'
 alias --save gbd='git branch -d'
