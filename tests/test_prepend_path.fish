@@ -1,4 +1,4 @@
-cat home/dot_config/fish/functions/*.fish | source
+cat src/dot_config/fish/functions/non_aliases/*.fish | source
 
 set -l ret 0
 

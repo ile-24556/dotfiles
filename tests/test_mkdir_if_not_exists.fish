@@ -2,7 +2,7 @@ rm -rf tmp
 mkdir -p tmp/dir1 tmp/dir2
 touch tmp/file1 tmp/file2
 
-cat home/dot_config/fish/functions/*.fish | source
+cat src/dot_config/fish/functions/non_aliases/*.fish | source
 
 mkdir_if_not_exists tmp/dir3
 if not test -d tmp/dir3

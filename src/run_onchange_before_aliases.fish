@@ -1,0 +1,36 @@
+#!/bin/fish
+
+rm -rf $HOME/.config/fish/functions/
+
+alias --save cm='chezmoi'
+alias --save ga='git add'
+alias --save gb='git branch -v'
+alias --save gbd='git branch -d'
+alias --save gbl='git blame'
+alias --save gc='git commit'
+alias --save gca='git commit --amend'
+alias --save gd='git diff'
+alias --save gdc='git diff --cached'
+alias --save gl='git log --oneline'
+alias --save glf='git log --format=fuller --date=iso-strict-local'
+alias --save glg='git log --oneline --graph'
+alias --save gll='git log --date=iso-strict-local'
+alias --save glsf='git ls-files'
+alias --save gmv='git mv'
+alias --save grb='git rebase'
+alias --save grm='git rm'
+alias --save grs='git restore'
+alias --save grst='git reset'
+alias --save grv='git revert'
+alias --save gs='git status --short'
+alias --save gsh='git show'
+alias --save gsl='git status'
+alias --save gw='git switch'
+alias --save l='ls -CF'
+alias --save la='ls -AF'
+alias --save ll='ls -alF'
+alias --save ls='ls --color=auto --time-style=long-iso'
+alias --save py='python3.14 -X utf8 -X warn_default_encoding'
+
+mkdir -p $HOME/.local/share/chezmoi/src/dot_config/fish/functions/aliases/
+cp $HOME/.config/fish/functions/*.fish $HOME/.local/share/chezmoi/src/dot_config/fish/functions/aliases/

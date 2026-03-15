@@ -1,0 +1,3 @@
+function gll --wraps='git log --date=iso-strict-local' --description 'alias gll=git log --date=iso-strict-local'
+    git log --date=iso-strict-local $argv
+end
