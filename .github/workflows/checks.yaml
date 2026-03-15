@@ -14,9 +14,7 @@ jobs:
           python-version: "3.14"
       - uses: fish-shop/install-fish-shell@v2
       - uses: pre-commit/action@v3.0.1
-      - uses: cargo-bins/cargo-binstall@main
-      - run: cargo binstall -y dprint
-      - run: dprint fmt
+      - uses: dprint/check@v2.3
   chezmoi-apply:
     runs-on: ubuntu-latest
     steps:
