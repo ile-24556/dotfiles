@@ -1,23 +1,25 @@
-cat src/dot_config/fish/functions/non_aliases/*.fish | source
+cat src/dot_config/fish/functions/*.fish | source
 
 set -l ret 0
 
-rm -rf tmp
-mkdir -p tmp/d{1,2,3}
-touch tmp/f
+set -l tmpd (mktemp -d)
+mkdir -p $tmpd/d{1,2,3}
+touch $tmpd/f
+
+return
 
 set -l tmp_path $PATH
-set PATH (builtin realpath tmp/d2)
+set PATH (builtin realpath $tmpd/d2)
 
 prepend_path \
-    tmp/d1 \
-    tmp/../tmp/d1 \
-    tmp/d2 \
-    tmp/d3 \
-    tmp/n \
-    tmp/f
+    $tmpd/d1 \
+    $tmpd/d1/../d1 \
+    $tmpd/d2 \
+    $tmpd/d3 \
+    $tmpd/n \
+    $tmpd/f
 
-set -l expected (builtin realpath tmp/d3):(builtin realpath tmp/d1):(builtin realpath tmp/d2)
+set -l expected (builtin realpath $tmpd/d3):(builtin realpath $tmpd/d1):(builtin realpath $tmpd/d2)
 
 if test "$PATH" != "$expected"
     echo Test failed:\nActual: "$PATH"\nExpected: "$expected" >&2
@@ -26,5 +28,5 @@ end
 
 set -gx PATH $tmp_path
 
-rm -rf tmp
+rm -rf $tmpd
 return $ret

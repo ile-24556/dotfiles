@@ -50,3 +50,8 @@ repos:
         language: unsupported
         entry: fish tests/test_mkdir_if_not_exists.fish
         files: fish/functions/[^/]+\.fish$
+      - id: test-function-prepend-path
+        name: test fish function test_prepend_path
+        language: unsupported
+        entry: fish tests/test_prepend_path.fish
+        files: fish/functions/[^/]+\.fish$
