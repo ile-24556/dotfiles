@@ -1,9 +1,5 @@
 #!/bin/fish
 
-set srcd $HOME/.local/share/chezmoi/src
-mkdir -p $srcd/dot_config/fish/functions/aliases
-true >$srcd/dot_aliases.sh
-
 function prepare_alias
     set -l name $argv[1]
     set -l definition (string join -n ' ' -- $argv[2..])
@@ -28,38 +24,3 @@ function prepare_alias
         echo alias cm$name=\'$cm_definition\' >>$srcd/dot_aliases.sh
     end
 end
-
-prepare_alias cm chezmoi
-prepare_alias cmad 'chezmoi add'
-prepare_alias cmap 'chezmoi apply'
-prepare_alias cmd 'chezmoi diff'
-prepare_alias cmup 'chezmoi update'
-prepare_alias g git
-prepare_alias ga 'git add'
-prepare_alias gb 'git branch -v'
-prepare_alias gbd 'git branch -d'
-prepare_alias gbl 'git blame'
-prepare_alias gc 'git commit'
-prepare_alias gca 'git commit --amend'
-prepare_alias gd 'git diff'
-prepare_alias gdc 'git diff --cached'
-prepare_alias gl 'git log --oneline'
-prepare_alias glf 'git log --format=fuller --date=iso-strict-local'
-prepare_alias glg 'git log --oneline --graph'
-prepare_alias gll 'git log --date=iso-strict-local'
-prepare_alias glsf 'git ls-files'
-prepare_alias gmv 'git mv'
-prepare_alias grb 'git rebase'
-prepare_alias grm 'git rm'
-prepare_alias grs 'git restore'
-prepare_alias grst 'git reset'
-prepare_alias grv 'git revert'
-prepare_alias gs 'git status --short'
-prepare_alias gsh 'git show'
-prepare_alias gsl 'git status'
-prepare_alias gw 'git switch'
-prepare_alias l 'ls -CF'
-prepare_alias la 'ls -AF'
-prepare_alias ll 'ls -alF'
-prepare_alias ls 'ls --color=auto --time-style=long-iso'
-prepare_alias py 'python3.14 -X utf8 -X warn_default_encoding'
