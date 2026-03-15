@@ -29,7 +29,7 @@ if (-Not ([Security.Principal.WindowsPrincipal] [Security.Principal.WindowsIdent
 # winget install --exact --id 'Microsoft.WSL'
 # winget install --exact --id 'Obsidian.Obsidian'
 # winget install --exact --id 'Rustlang.Rustup'
-# winget install --exact --id 'twpayne.chezmoi'
+winget install --exact --id 'twpayne.chezmoi'
 
 ########################################
 # Tools written in Rust
@@ -38,7 +38,6 @@ if (-Not ([Security.Principal.WindowsPrincipal] [Security.Principal.WindowsIdent
 Write-Output 'Installing cargo binaries'
 cargo binstall --locked -y -- `
     bat `
-    deno `
     dprint `
     oxipng `
     ripgrep `

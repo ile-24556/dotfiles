@@ -21,14 +21,16 @@ if ! command -v fish; then
   sudo apt install -y software-properties-common
   sudo add-apt-repository ppa:fish-shell/release-4
   sudo apt update
+  sudo apt install -y fish
 fi
 
 sudo apt install -y \
-  fish \
   git \
   tree \
 
-chsh -s "$(command -v fish)"
+if [[ "${SHELL}" != "$(command -v fish)" ]]; then
+  chsh -s "$(command -v fish)"
+fi
 
 ########################################
 # GitHub CLI
@@ -69,7 +71,6 @@ fi
 echo 'Installing cargo binaries'
 cargo binstall --locked -y -- \
   bat \
-  deno \
   dprint \
   mise \
   oxipng \
@@ -82,6 +83,9 @@ cargo binstall --locked -y -- \
 # pre-commit
 ########################################
 
+if ! command -v pre-commit; then
+  uv tool install pre-commit
+fi
+
 cd "${HOME}/.local/share/chezmoi/"
-uv tool install pre-commit
 pre-commit install
