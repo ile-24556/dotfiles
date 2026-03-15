@@ -8,7 +8,6 @@ Templates/
 Videos/
 
 {{ if eq .chezmoi.os "windows" }}
-.config/bat/
 .config/fish/
 
 Documents/*
