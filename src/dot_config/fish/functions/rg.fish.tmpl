@@ -1,0 +1,5 @@
+{{if .env.isWSL -}}
+function rg --description 'Use rg.exe if called in a Windows directory'
+    try_win_exe rg $argv
+end
+{{end -}}

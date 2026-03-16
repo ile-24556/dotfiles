@@ -1,0 +1,5 @@
+{{if .env.isWSL -}}
+function git --description 'Use git.exe if called in a Windows directory'
+    try_win_exe git $argv
+end
+{{end -}}
