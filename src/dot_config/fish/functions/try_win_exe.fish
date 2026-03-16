@@ -1,0 +1,5 @@
+function try_win_exe --description 'Use Windows binary when on Windows if possible'
+    string match -q '/mnt/c/*' $PWD
+    and command $argv[1].exe $argv[2..]
+    or command $argv[1] $argv[2..]
+end
