@@ -1,8 +1,2 @@
 .gitconfig
 .gitignore
-
-.config/fish/conf.d/{mise,rustup,uv.env}.fish
-
-{{ if eq .chezmoi.os "windows" }}
-.config/fish/
-{{ end }}

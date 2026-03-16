@@ -7,7 +7,7 @@ Public/
 Templates/
 Videos/
 
-{{ if eq .chezmoi.os "windows" }}
+{{if .env.isWindows -}}
 .config/fish/
 
 Documents/*
@@ -15,9 +15,9 @@ Documents/*
 
 **/*.fish
 **/*.sh
-{{ else }}
+{{else -}}
 **/*.ps1
 
 AppData/
 Documents/
-{{ end }}
+{{end -}}
