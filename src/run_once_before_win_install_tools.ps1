@@ -16,8 +16,8 @@ if (-Not ([Security.Principal.WindowsPrincipal] [Security.Principal.WindowsIdent
 # winget install --exact --id '7zip.7zip'
 # winget install --exact --id 'AgileBits.1Password'
 # winget install --exact --id 'Canonical.Ubuntu.2404'
-# winget install --exact --id 'Git.Git'
-# winget install --exact --id 'GitHub.cli'
+winget install --exact --id 'Git.Git'
+winget install --exact --id 'GitHub.cli'
 # winget install --exact --id 'Google.JapaneseIME'
 # winget install --exact --id 'ImageMagick.ImageMagick'
 # winget install --exact --id 'jdx.mise'
@@ -28,8 +28,8 @@ if (-Not ([Security.Principal.WindowsPrincipal] [Security.Principal.WindowsIdent
 # winget install --exact --id 'Microsoft.WindowsTerminal'
 # winget install --exact --id 'Microsoft.WSL'
 # winget install --exact --id 'Obsidian.Obsidian'
-# winget install --exact --id 'Rustlang.Rustup'
-winget install --exact --id 'twpayne.chezmoi'
+winget install --exact --id 'Rustlang.Rustup'
+# winget install --exact --id 'twpayne.chezmoi'
 
 ########################################
 # Tools written in Rust
@@ -48,6 +48,10 @@ cargo binstall --locked -y -- `
 # pre-commit
 ########################################
 
-Set-Location "${HOME}/.local/share/chezmoi/"
 uv tool install pre-commit
+Set-Location "${HOME}/.local/share/chezmoi/"
 pre-commit install
+
+########################################
+
+exit
