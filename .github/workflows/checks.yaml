@@ -12,6 +12,7 @@ concurrency:
 jobs:
   checks:
     runs-on: ubuntu-latest
+    timeout-minutes: 5
     steps:
       - uses: actions/checkout@v6
       - uses: actions/setup-python@v6
@@ -22,6 +23,7 @@ jobs:
       - uses: dprint/check@v2.3
   chezmoi-apply:
     runs-on: ubuntu-latest
+    timeout-minutes: 5
     steps:
       - uses: actions/checkout@v6
       - run: sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply --source ./home --exclude scripts --include always
