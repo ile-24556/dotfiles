@@ -28,7 +28,7 @@ sudo apt install -y \
   git \
   tree \
 
-if [[ "${SHELL}" != "$(command -v fish)" ]]; then
+if ! [[ "${SHELL}" == "$(command -v fish)" || "${GITHUB_ACTIONS}" == 'true' ]]; then
   chsh -s "$(command -v fish)"
 fi
 
