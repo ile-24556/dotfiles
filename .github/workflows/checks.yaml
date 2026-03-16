@@ -27,6 +27,8 @@ jobs:
       - uses: dprint/check@v2.3
   chezmoi-apply:
     runs-on: ubuntu-latest
+    env:
+      TZ: "Asia/Tokyo"
     timeout-minutes: 5
     steps:
       - uses: actions/checkout@v6
