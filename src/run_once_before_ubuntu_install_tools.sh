@@ -55,6 +55,8 @@ fi
 # Rust and tools written in Rust
 ########################################
 
+export PATH="${HOME}/.cargo/bin:${PATH}"
+
 # rustup
 if ! command -v rustup; then
   echo 'Installing rustup ...'
@@ -84,9 +86,15 @@ cargo binstall --locked -y -- \
 # pre-commit
 ########################################
 
+export PATH="${HOME}/.local/bin:${PATH}"
+
 if ! command -v pre-commit; then
   uv tool install pre-commit
 fi
 
 cd "${HOME}/.local/share/chezmoi/"
 pre-commit install
+
+########################################
+
+echo 'Reboot is recomended for PATH definition on login'
