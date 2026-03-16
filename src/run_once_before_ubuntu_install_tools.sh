@@ -20,7 +20,7 @@ sudo apt update && sudo apt upgrade -y
 if ! command -v fish; then
   # export TZ='Asia/Tokyo' if you want to avoid stopping here.
   sudo apt install -y software-properties-common
-  sudo add-apt-repository ppa:fish-shell/release-4
+  sudo add-apt-repository -y --ppa ppa:fish-shell/release-4
   sudo apt update
   sudo apt install -y fish
 fi
