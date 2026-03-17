@@ -40,6 +40,7 @@ fi
 if ! command -v gh; then
   echo 'Installing GitHub CLI ...'
   # https://github.com/cli/cli/blob/trunk/docs/install_linux.md#debian
+  # shellcheck disable=SC2002
   (type -p wget >/dev/null || (sudo apt-get update -q && sudo apt-get install wget -qy)) \
     && sudo mkdir -p -m 755 /etc/apt/keyrings \
     && out=$(mktemp) && wget -nv -O"${out}" https://cli.github.com/packages/githubcli-archive-keyring.gpg \
