@@ -98,4 +98,4 @@ pre-commit install
 
 ########################################
 
-echo 'Reboot is recomended for PATH definition on login'
+echo 'Open new shell with `fish -l` to reflect PATH additions'
