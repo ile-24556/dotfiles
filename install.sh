@@ -85,7 +85,7 @@ install_from_rust_to_chezmoi() {
     bat \
     deno \
     dprint \
-    fd \
+    fd-find \
     mise \
     ripgrep \
     starship \
