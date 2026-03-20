@@ -31,5 +31,5 @@ jobs:
     timeout-minutes: 5
     steps:
       - uses: actions/checkout@v6
-      - run: sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply --source ./src
+      - run: ./install.sh
       - run: tree -a "${HOME}"
