@@ -24,10 +24,12 @@ abbr --add gc -- git commit
 abbr --add gca -- git commit --amend
 abbr --add gd -- git diff
 abbr --add gdc -- git diff --cached
+abbr --add gds -- git diff --stat
 abbr --add gl -- git log --oneline
-abbr --add glf -- git log --format=fuller
+abbr --add glf -- git log --format=fuller --stat
 abbr --add glg -- git log --oneline --graph
 abbr --add gll -- git log
+abbr --add gls -- git log --oneline --stat
 abbr --add glsf -- git ls-files
 abbr --add gmv -- git mv
 abbr --add grb -- git rebase HEAD
