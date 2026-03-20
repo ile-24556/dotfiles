@@ -25,17 +25,27 @@ install_apt_packages() {
 }
 
 install_fish() {
-  if ! command -v fish; then
-    if [[ "${GITHUB_ACTIONS:-}" == 'true' ]]; then
-      sudo DEBIAN_FRONTEND=noninteractive apt install tzdata
-    fi
-
-    sudo apt-get install -qy software-properties-common
-    sudo add-apt-repository -y --ppa ppa:fish-shell/release-4
-    sudo apt-get update
-    sudo apt-get install -qy fish
+  if command -v fish; then
+    return
   fi
 
+  sudo mkdir -p -m 755 /etc/apt/keyrings
+  key='/etc/apt/keyrings/fish-shell.asc'
+  sudo curl -fsS -o "${key}" 'http://keyserver.ubuntu.com:11371/pks/lookup?op=get&search=0x88421E703EDC7AF54967DED473C9FCC9E2BB48DA'
+  sudo chmod a+r "${key}"
+
+  sudo mkdir -p -m 755 /etc/apt/sources.list.d
+  echo "deb [arch=$(dpkg --print-architecture) signed-by=${key}] https://ppa.launchpadcontent.net/fish-shell/release-4/ubuntu noble main" \
+    | sudo tee /etc/apt/sources.list.d/fish-shell.list
+
+  sudo apt-get update -q
+  if [[ "${GITHUB_ACTIONS:-}" == 'true' ]]; then
+    sudo DEBIAN_FRONTEND=noninteractive apt-get install -qy tzdata
+  fi
+  sudo apt-get install -qy fish
+}
+
+change_login_shell() {
   sudo chsh -s "$(command -v fish)" "${USER}"
 }
 
@@ -98,6 +108,7 @@ main() {
   check_if_system_is_ubuntu
   install_apt_packages
   install_fish
+  change_login_shell
   install_gh
   add_paths
   install_from_rust_to_chezmoi
