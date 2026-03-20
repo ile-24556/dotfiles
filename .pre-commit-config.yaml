@@ -32,9 +32,15 @@ repos:
     hooks:
       - id: markdownlint-cli2
 
-  # fish shell is required
   - repo: local
     hooks:
+      - id: shellcheck
+        name: ShellCheck
+        language: unsupported
+        entry: shellcheck
+        files: \.(sh|bash)$
+
+      # fish shell is required
       - id: fish-indent
         name: indent fish scripts
         language: unsupported
