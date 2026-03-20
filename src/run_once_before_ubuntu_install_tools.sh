@@ -28,7 +28,7 @@ sudo apt-get install -qy \
   git \
   tree \
 
-if ! [[ "${SHELL}" == "$(command -v fish)" || "${GITHUB_ACTIONS}" == 'true' ]]; then
+if ! [[ "${SHELL}" == "$(command -v fish)" || "${GITHUB_ACTIONS:-}" == 'true' ]]; then
   chsh -s "$(command -v fish)"
 fi
 
@@ -51,10 +51,15 @@ if ! command -v gh; then
 fi
 
 ########################################
-# Rust and tools written in Rust
+# PATH
 ########################################
 
-export PATH="${HOME}/.cargo/bin:${PATH}"
+# Forece-prepend paths to execute chezmoi templates prior to the fish config installation.
+export PATH="${HOME}/.local/share/mise/shims:${HOME}/.cargo/bin:${HOME}/.local/bin:${PATH}"
+
+########################################
+# Rust and tools written in Rust
+########################################
 
 # rustup
 if ! command -v rustup; then
@@ -84,8 +89,6 @@ cargo binstall --locked -y -- \
 ########################################
 # pre-commit
 ########################################
-
-export PATH="${HOME}/.local/bin:${PATH}"
 
 if ! command -v pre-commit; then
   uv tool install pre-commit
