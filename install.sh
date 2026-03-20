@@ -11,7 +11,11 @@ check_if_system_is_ubuntu() {
 
 install_apt_packages() {
   sudo apt-get update -q
-  sudo apt-get upgrade -qy
+
+  if [[ "${GITHUB_ACTIONS:-}" != 'true' ]]; then
+    sudo apt-get upgrade -qy
+  fi
+
   sudo apt-get install -qy \
     curl \
     git \
