@@ -11,7 +11,7 @@ echo 'Installing tools on Ubuntu.'
 
 set -eu
 
-sudo apt-get upgrade --update -qy
+sudo apt-get update -q && sudo apt-get upgrade -qy
 
 ########################################
 # fish shell
@@ -21,7 +21,8 @@ if ! command -v fish; then
   # export TZ='Asia/Tokyo' if you want to avoid stopping here.
   sudo apt-get install -qy software-properties-common
   sudo add-apt-repository -y --ppa ppa:fish-shell/release-4
-  sudo apt-get install --update -qy fish
+  sudo apt-get update
+  sudo apt-get install -qy fish
 fi
 
 sudo apt-get install -qy \
@@ -47,7 +48,8 @@ if ! command -v gh; then
     && sudo chmod go+r /etc/apt/keyrings/githubcli-archive-keyring.gpg \
     && sudo mkdir -p -m 755 /etc/apt/sources.list.d \
     && echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null \
-    && sudo apt-get install --update -qy gh
+    && sudo apt-get update -q \
+    && sudo apt-get install gh -qy
 fi
 
 ########################################
