@@ -96,4 +96,5 @@ pre-commit install
 
 ########################################
 
+# shellcheck disable=SC2016
 echo 'Open new shell with `fish -l` to reflect PATH additions'
