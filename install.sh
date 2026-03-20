@@ -26,11 +26,11 @@ install_apt_packages() {
 
 install_fish() {
   if ! command -v fish; then
-    export TZ=Asia/Tokyo
-    ln -fns /usr/share/zoneinfo/$TZ /etc/localtime
-    echo "${TZ}" > /etc/timezone
-    sudo apt-get install -qy software-properties-common
+    if [[ "${GITHUB_ACTIONS:-}" == 'true' ]]; then
+      sudo DEBIAN_FRONTEND=noninteractive apt install tzdata
+    fi
 
+    sudo apt-get install -qy software-properties-common
     sudo add-apt-repository -y --ppa ppa:fish-shell/release-4
     sudo apt-get update
     sudo apt-get install -qy fish
