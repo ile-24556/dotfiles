@@ -22,6 +22,9 @@ install_apt_packages() {
 
 install_fish() {
   if ! command -v fish; then
+    export TZ=Asia/Tokyo
+    ln -fns /usr/share/zoneinfo/$TZ /etc/localtime
+    echo "${TZ}" > /etc/timezone
     sudo apt-get install -qy software-properties-common
 
     sudo add-apt-repository -y --ppa ppa:fish-shell/release-4
