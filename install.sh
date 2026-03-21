@@ -31,7 +31,8 @@ install_fish() {
 
   sudo mkdir -p -m 755 /etc/apt/keyrings
   key='/etc/apt/keyrings/fish-shell.asc'
-  sudo curl -fsS -o "${key}" 'http://keyserver.ubuntu.com:11371/pks/lookup?op=get&search=0x88421E703EDC7AF54967DED473C9FCC9E2BB48DA'
+  curl -fsS 'http://keyserver.ubuntu.com:11371/pks/lookup?op=get&search=0x88421E703EDC7AF54967DED473C9FCC9E2BB48DA' \
+    | sudo tee "${key}" > /dev/null
   sudo chmod a+r "${key}"
 
   sudo mkdir -p -m 755 /etc/apt/sources.list.d
