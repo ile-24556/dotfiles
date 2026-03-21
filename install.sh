@@ -100,7 +100,7 @@ install_from_rust_to_chezmoi() {
 
 chezmoi_init_and_apply() {
   if [[ "${GITHUB_ACTIONS:-}" == 'true' ]]; then
-    chezmoi init --source ./src
+    chezmoi init --source-path .
   else
     chezmoi init 'ile-24556'
   fi
