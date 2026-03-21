@@ -29,7 +29,7 @@ install_fish() {
     return
   fi
 
-  key='/etc/apt/keyrings/fish-shell.asc'
+  readonly key='/etc/apt/keyrings/fish-shell.asc'
   curl -fsS 'http://keyserver.ubuntu.com:11371/pks/lookup?op=get&search=0x88421E703EDC7AF54967DED473C9FCC9E2BB48DA' \
     | sudo tee "${key}" > /dev/null
   sudo chmod a+r "${key}"
