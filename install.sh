@@ -36,8 +36,13 @@ install_fish() {
   sudo chmod a+r "${key}"
 
   sudo mkdir -p -m 755 /etc/apt/sources.list.d
-  echo "deb [arch=$(dpkg --print-architecture) signed-by=${key}] https://ppa.launchpadcontent.net/fish-shell/release-4/ubuntu noble main" \
-    | sudo tee /etc/apt/sources.list.d/fish-shell.list
+  sudo tee /etc/apt/sources.list.d/fish-shell.sources << EOF
+Types: deb
+URIs: https://ppa.launchpadcontent.net/fish-shell/release-4/ubuntu
+Suites: noble
+Components: main
+Signed-By: ${key}
+EOF
 
   sudo apt-get update -q
   if [[ "${GITHUB_ACTIONS:-}" == 'true' ]]; then
