@@ -25,7 +25,8 @@ install_apt_packages() {
 }
 
 install_fish() {
-  if command -v fish; then
+  readonly version_pattern=' 4\.[0-9]+\.[0-9]+$'
+  if command -v fish && [[ "$(command fish --version)" =~ ${version_pattern} ]]; then
     return
   fi
 
