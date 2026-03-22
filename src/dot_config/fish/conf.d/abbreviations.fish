@@ -42,9 +42,5 @@ abbr --add gs -- git status --short
 abbr --add gsh -- git show
 abbr --add gsl -- git status
 abbr --add gw -- git switch
-abbr --add l -- ls -CF
-abbr --add la -- ls -AF
-abbr --add ll -- ls -alF
-abbr --add ls -- ls --color=auto --time-style=long-iso
 abbr --add py -- python3.14 -X utf8 -X warn_default_encoding
 abbr --add ti --set-cursor -- 'for i in (seq 10); time %; end'
