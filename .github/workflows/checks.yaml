@@ -34,3 +34,12 @@ jobs:
       - uses: actions/checkout@v6
       - run: ./install.sh
       - run: tree -a "${HOME}"
+  apply-in-windows:
+    runs-on: windows-latest
+    defaults:
+      run:
+        shell: pwsh
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v6
+      - run: .\install.ps1
