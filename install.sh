@@ -110,6 +110,15 @@ chezmoi_init_and_apply() {
   chezmoi apply
 }
 
+install_git_hooks() {
+  if ! command -v pre-commit; then
+    uv tool install pre-commit
+  fi
+
+  cd "${HOME}/.local/share/chezmoi/"
+  pre-commit install
+}
+
 main() {
   set -eux
   check_if_system_is_ubuntu
@@ -120,6 +129,7 @@ main() {
   add_paths
   install_from_rust_to_chezmoi
   chezmoi_init_and_apply
+  install_git_hooks
 }
 
 main
