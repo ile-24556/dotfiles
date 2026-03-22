@@ -10,6 +10,7 @@ end
 
 # Arugument order matters; It is like LIFO: uv, rustup, mise
 prepend_path \
+    (go env GOBIN) \
     $HOME/.local/bin \
     $HOME/.cargo/bin \
     $HOME/.local/share/mise/shims

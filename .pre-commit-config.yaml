@@ -47,6 +47,11 @@ repos:
         language: unsupported
         entry: shellcheck
         files: \.(sh|bash)$
+      - id: actionlint
+        name: actionlint
+        language: unsupported
+        entry: actionlint
+        files: ^\.github/workflows/.+\.yaml$
 
       # fish shell is required
       - id: fish-indent
