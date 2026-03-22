@@ -67,11 +67,11 @@ if (-not (Command-Exists chezmoi)) {
 # Append paths
 ########################################
 
-$env:Path += ''
+$env:Path += '' `
     + ";$env:ProgramFiles\Git\cmd" `
     + ";$env:ProgramFiles\GitHub CLI" `
     + ";$HOME\.cargo\bin" `
-    + ";$HOME\.local\bin"
+    + ";$HOME\.local\bin" `
     + ";$env:LocalAppData\Microsoft\WinGet\Packages\twpayne.chezmoi_Microsoft.Winget.Source_8wekyb3d8bbwe" `
 
 ########################################
