@@ -14,4 +14,6 @@ curl -fsS https://raw.githubusercontent.com/ile-24556/dotfiles/main/install.sh |
 
 ### Windows
 
-WIP
+```powershell
+Invoke-Expression (Invoke-WebRequest 'https://raw.githubusercontent.com/ile-24556/dotfiles/main/install.ps1').Content
+```
