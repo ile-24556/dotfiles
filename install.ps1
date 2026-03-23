@@ -1,5 +1,9 @@
 # Install small set of tools and apply chezmoi.
 
+$ErrorActionPreference = 'stop'
+Set-StrictMode -Version 3.0
+Set-PSDebug -Trace 1
+
 Write-Output 'Installing tools as administrator ...'
 
 # Self-elevate the script if required
@@ -22,16 +26,12 @@ Function Command-Exists {
         [string[]]$CommandName
     )
 
-    $OldPreference = $ErrorActionPreference
-    $ErrorActionPreference = 'stop'
     try {
         if (Get-Command $CommandName) {
             return $true
         }
     } catch {
         return $false
-    } finally {
-        $ErrorActionPreference=$OldPreference
     }
 }
 
