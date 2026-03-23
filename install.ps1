@@ -35,6 +35,7 @@ Function Command-Exists {
     }
 }
 
+# Accept WinGet agreements beforehand in CI
 if ($env:GITHUB_ACTIONS) {
     winget list --accept-source-agreements
 }
@@ -93,6 +94,7 @@ cargo binstall --locked -y -- `
     bat `
     dprint `
     fd-find `
+    mise `
     oxipng `
     ripgrep `
     starship `
@@ -110,7 +112,7 @@ if ($env:GITHUB_ACTIONS) {
 chezmoi apply
 
 ########################################
-# pre-commit
+# start developping dotfiles
 ########################################
 
 if (-not (Command-Exists pre-commit)) {
@@ -118,3 +120,6 @@ if (-not (Command-Exists pre-commit)) {
 }
 Set-Location "$HOME\.local\share\chezmoi"
 pre-commit install
+
+mise install go
+go install 'github.com/rhysd/actionlint/cmd/actionlint@latest'

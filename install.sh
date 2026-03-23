@@ -19,6 +19,7 @@ install_apt_packages() {
   sudo apt-get install -qy \
     curl \
     git \
+    shellcheck \
     tree \
     wget \
 
@@ -98,7 +99,7 @@ install_from_rust_to_chezmoi() {
     starship \
     uv \
 
-  mise use chezmoi@2
+  mise install chezmoi@2
 }
 
 chezmoi_init_and_apply() {
@@ -110,13 +111,15 @@ chezmoi_init_and_apply() {
   chezmoi apply
 }
 
-install_git_hooks() {
+start_developping_dotfiles() {
   if ! command -v pre-commit; then
     uv tool install pre-commit
   fi
-
   cd "${HOME}/.local/share/chezmoi/"
   pre-commit install
+
+  mise install go
+  go install 'github.com/rhysd/actionlint/cmd/actionlint@latest'
 }
 
 main() {
@@ -129,7 +132,7 @@ main() {
   add_paths
   install_from_rust_to_chezmoi
   chezmoi_init_and_apply
-  install_git_hooks
+  start_developping_dotfiles
 }
 
 main
