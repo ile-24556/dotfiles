@@ -1,6 +1,12 @@
 font-size = 14
-theme = Nord
 adjust-cell-height = -10%
+
+theme = Nord
 window-theme = ghostty
+
 window-height = 48
 window-width = 120
+
+window-padding-x = 12
+window-padding-y = 12
+window-padding-balance = true
