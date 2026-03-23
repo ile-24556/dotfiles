@@ -35,6 +35,10 @@ Function Command-Exists {
     }
 }
 
+if ($env:GITHUB_ACTIONS) {
+    winget list --accept-source-agreements
+}
+
 if (-not (Command-Exists git)) {
     winget install --exact --id 'Git.Git'
 }
