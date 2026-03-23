@@ -2,5 +2,5 @@ font-size = 14
 theme = Nord
 adjust-cell-height = -10%
 window-theme = ghostty
-window-height = 40
-window-width = 100
+window-height = 48
+window-width = 120
