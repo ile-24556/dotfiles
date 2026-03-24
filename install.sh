@@ -16,10 +16,17 @@ install_apt_packages() {
     sudo apt-get upgrade -qy
   fi
 
+  if [[ "${GITHUB_ACTIONS:-}" == 'true' ]]; then
+    sudo DEBIAN_FRONTEND=noninteractive apt-get install -qy tzdata
+  else
+    sudo apt-get install -qy tzdata
+  fi
+
   sudo apt-get install -qy \
     curl \
     git \
     shellcheck \
+    software-properties-common \
     tree \
     wget \
 
@@ -31,23 +38,8 @@ install_fish() {
     return
   fi
 
-  readonly key='/etc/apt/keyrings/fish-shell.asc'
-  curl -fsS 'http://keyserver.ubuntu.com:11371/pks/lookup?op=get&search=0x88421E703EDC7AF54967DED473C9FCC9E2BB48DA' \
-    | sudo tee "${key}" > /dev/null
-  sudo chmod a+r "${key}"
-
-  sudo tee /etc/apt/sources.list.d/fish-shell.sources << EOF
-Types: deb
-URIs: https://ppa.launchpadcontent.net/fish-shell/release-4/ubuntu
-Suites: noble
-Components: main
-Signed-By: ${key}
-EOF
-
+  sudo add-apt-repository -y --ppa ppa:fish-shell/release-4
   sudo apt-get update -q
-  if [[ "${GITHUB_ACTIONS:-}" == 'true' ]]; then
-    sudo DEBIAN_FRONTEND=noninteractive apt-get install -qy tzdata
-  fi
   sudo apt-get install -qy fish
 }
 
