@@ -77,7 +77,6 @@ $env:Path += '' `
     + ";$env:ProgramFiles\GitHub CLI" `
     + ";$HOME\.cargo\bin" `
     + ";$HOME\.local\bin" `
-    + ";$env:LocalAppData\Microsoft\WinGet\Packages\twpayne.chezmoi_Microsoft.Winget.Source_8wekyb3d8bbwe" `
 
 ########################################
 # Tools written in Rust
@@ -105,11 +104,10 @@ cargo binstall --locked -y -- `
 ########################################
 
 if ($env:GITHUB_ACTIONS) {
-    chezmoi init --source-path .
+    mise exec chezmoi@2 -- chezmoi init --apply --source-path .
 } else {
-    chezmoi init 'ile-24556'
+    mise exec chezmoi@2 -- chezmoi init --apply 'ile-24556'
 }
-chezmoi apply
 
 ########################################
 # start developping dotfiles
@@ -121,5 +119,4 @@ if (-not (Command-Exists pre-commit)) {
 Set-Location "$HOME\.local\share\chezmoi"
 pre-commit install
 
-mise install go
-go install 'github.com/rhysd/actionlint/cmd/actionlint@latest'
+mise exec go -- go install 'github.com/rhysd/actionlint/cmd/actionlint@latest'

@@ -99,16 +99,14 @@ install_from_rust_to_chezmoi() {
     starship \
     uv \
 
-  mise install chezmoi@2
 }
 
 chezmoi_init_and_apply() {
   if [[ "${GITHUB_ACTIONS:-}" == 'true' ]]; then
-    chezmoi init --source-path .
+    mise exec chezmoi@2 -- chezmoi init --apply --source-path .
   else
-    chezmoi init 'ile-24556'
+    mise exec chezmoi@2 -- chezmoi init --apply 'ile-24556'
   fi
-  chezmoi apply
 }
 
 start_developping_dotfiles() {
@@ -118,8 +116,7 @@ start_developping_dotfiles() {
   cd "${HOME}/.local/share/chezmoi/"
   pre-commit install
 
-  mise install go
-  go install 'github.com/rhysd/actionlint/cmd/actionlint@latest'
+  mise exec go -- go install 'github.com/rhysd/actionlint/cmd/actionlint@latest'
 }
 
 main() {
