@@ -1,18 +1,14 @@
 abbr --add cm --position anywhere -- chezmoi
 abbr --add cmad -- chezmoi add
 abbr --add cmap -- chezmoi apply
+abbr --add cmcd -- chezmoi cd
 abbr --add cmd -- chezmoi diff
 abbr --add cmg -- chezmoi git --
 abbr --add cmga -- chezmoi git -- add
-abbr --add cmgbl -- chezmoi git -- blame
-abbr --add cmgc -- chezmoi git -- commit
-abbr --add cmgca -- chezmoi git -- commit --amend
 abbr --add cmgd -- chezmoi git -- diff
-abbr --add cmgdc -- chezmoi git -- diff --cached
 abbr --add cmgl -- chezmoi git -- log --oneline
 abbr --add cmgs -- chezmoi git -- status --short
 abbr --add cmgsh -- chezmoi git -- show
-abbr --add cmgsl -- chezmoi git -- status
 abbr --add cmup -- chezmoi update
 abbr --add g -- git
 abbr --add ga -- git add
@@ -32,8 +28,8 @@ abbr --add gll -- git log
 abbr --add gls -- git log --oneline --stat
 abbr --add glsf -- git ls-files
 abbr --add gmv -- git mv
-abbr --add grb -- git rebase HEAD
-abbr --add grbi -- git rebase -i HEAD
+abbr --add grb -- git rebase
+abbr --add grbi -- git rebase -i
 abbr --add grm -- git rm
 abbr --add grs -- git restore
 abbr --add grst -- git reset HEAD
