@@ -25,6 +25,7 @@ install_apt_packages() {
   sudo apt-get install -qy \
     curl \
     git \
+    golang \
     shellcheck \
     software-properties-common \
     tree \
@@ -108,7 +109,7 @@ start_developping_dotfiles() {
   cd "${HOME}/.local/share/chezmoi/"
   pre-commit install
 
-  mise exec go -- go install 'github.com/rhysd/actionlint/cmd/actionlint@latest'
+  go install 'github.com/rhysd/actionlint/cmd/actionlint@latest'
 }
 
 main() {

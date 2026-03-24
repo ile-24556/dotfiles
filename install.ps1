@@ -46,6 +46,9 @@ if (-not (Command-Exists git)) {
 if (-not (Command-Exists gh)) {
     winget install --exact --id 'GitHub.cli'
 }
+if (-not (Command-Exists go)) {
+    winget install --exact --id 'GoLang.Go'
+}
 if (-not (Command-Exists pwsh)) {
     winget install --exact --id 'Microsoft.PowerShell'
 }
@@ -75,6 +78,7 @@ if (-not (Command-Exists chezmoi)) {
 $env:Path += '' `
     + ";$env:ProgramFiles\Git\cmd" `
     + ";$env:ProgramFiles\GitHub CLI" `
+    + ";$env:ProgramFiles\Go\bin" `
     + ";$HOME\.cargo\bin" `
     + ";$HOME\.local\bin" `
 
@@ -119,4 +123,4 @@ if (-not (Command-Exists pre-commit)) {
 Set-Location "$HOME\.local\share\chezmoi"
 pre-commit install
 
-mise exec go -- go install 'github.com/rhysd/actionlint/cmd/actionlint@latest'
+go install 'github.com/rhysd/actionlint/cmd/actionlint@latest'

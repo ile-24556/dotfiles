@@ -1,6 +1,5 @@
 [tools]
 chezmoi = "2"
-go = "latest"
 node = "lts"
 python = "latest"
 usage = "latest"
