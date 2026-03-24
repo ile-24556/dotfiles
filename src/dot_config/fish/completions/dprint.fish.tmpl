@@ -1,1 +1,5 @@
-{{ output "dprint" "completions" "fish" | trim }}
+{{output "fish" "-c" `
+if command -v dprint >/dev/null;
+    command dprint completions fish
+end
+` | trim}}

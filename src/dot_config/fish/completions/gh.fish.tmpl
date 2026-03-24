@@ -1,1 +1,5 @@
-{{ output "gh" "completion" "--shell" "fish" | trim }}
+{{output "fish" "-c" `
+if command -v gh >/dev/null;
+    command gh completion --shell fish
+end
+` | trim}}

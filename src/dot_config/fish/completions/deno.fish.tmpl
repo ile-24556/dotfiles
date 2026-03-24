@@ -1,1 +1,5 @@
-{{ output "deno" "completions" "fish" | trim }}
+{{output "fish" "-c" `
+if command -v deno >/dev/null;
+    command deno completions fish
+end
+` | trim}}
