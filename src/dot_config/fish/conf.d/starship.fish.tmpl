@@ -1,1 +1,5 @@
-{{output "starship" "init" "fish" "--print-full-init" | trim}}
+{{output "fish" "-c" `
+if command -v starship >/dev/null
+    command starship init fish --print-full-init
+end
+` | trim}}
