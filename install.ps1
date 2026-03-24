@@ -114,7 +114,7 @@ if ($env:GITHUB_ACTIONS) {
 ########################################
 
 if (-not (Command-Exists pre-commit)) {
-    uv tool install
+    uv tool install pre-commit
 }
 Set-Location "$HOME\.local\share\chezmoi"
 pre-commit install
