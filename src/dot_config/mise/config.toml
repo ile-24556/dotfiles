@@ -1,5 +1,4 @@
 [tools]
-chezmoi = "2"
 node = "lts"
 python = "latest"
 usage = "latest"

@@ -76,6 +76,7 @@ if (-not (Command-Exists chezmoi)) {
 ########################################
 
 $env:Path += '' `
+    + ";$env:LocalAppData\Microsoft\WinGet\Packages\twpayne.chezmoi_Microsoft.Winget.Source_8wekyb3d8bbwe" `
     + ";$env:ProgramFiles\Git\cmd" `
     + ";$env:ProgramFiles\GitHub CLI" `
     + ";$env:ProgramFiles\Go\bin" `
@@ -108,9 +109,9 @@ cargo binstall --disable-strategies compile -y -- `
 ########################################
 
 if ($env:GITHUB_ACTIONS) {
-    mise exec chezmoi@2 -- chezmoi init --apply --source-path .
+    chezmoi init --apply --source-path .
 } else {
-    mise exec chezmoi@2 -- chezmoi init --apply 'ile-24556'
+    chezmoi init --apply 'ile-24556'
 }
 
 ########################################
