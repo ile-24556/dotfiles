@@ -67,7 +67,7 @@ install_gh() {
 }
 
 add_paths() {
-  export PATH="${HOME}/.cargo/bin:${HOME}/.local/bin:${PATH}"
+  export PATH="$HOME/.local/share/mise/shims:${HOME}/.cargo/bin:${HOME}/.local/bin:${PATH}"
 }
 
 install_rust_and_tools() {
@@ -94,25 +94,8 @@ install_rust_and_tools() {
 
 }
 
-install_chezmoi() {
-  if command -v chezmoi; then
-    return
-  fi
-  old_cwd="${PWD}"
-  cd "$(mktemp -d)"
-  tag="$(gh release --repo 'twpayne/chezmoi' ls --limit 1 --json tagName --jq '.[0].tagName')"
-  number="${tag#v}" # e.g. 'v2.70.0' → '2.70.0'
-  gh release download --repo 'twpayne/chezmoi' "${tag}" \
-    -p "chezmoi_${number}_linux_$(dpkg --print-architecture).tar.gz" \
-    -p "chezmoi_${number}_checksums.txt"
-  sha256sum --check "chezmoi_${number}_checksums.txt" --ignore-missing
-  tar -xaf "chezmoi_${number}_linux_amd64.tar.gz"
-  mkdir -p "${HOME}/.local/bin"
-  mv chezmoi "${HOME}/.local/bin"
-  cd "${old_cwd}"
-}
-
 chezmoi_init_and_apply() {
+  mise use -g chezmoi@2
   if [[ "${GITHUB_ACTIONS:-}" == 'true' ]]; then
     chezmoi init --apply --source-path .
   else
@@ -139,7 +122,6 @@ main() {
   install_gh
   add_paths
   install_rust_and_tools
-  install_chezmoi
   chezmoi_init_and_apply
   start_developping_dotfiles
 }

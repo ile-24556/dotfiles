@@ -29,8 +29,6 @@ jobs:
       - uses: dprint/check@v2.3
   chezmoi-apply:
     runs-on: ubuntu-latest
-    env:
-      GH_TOKEN: ${{ github.token }}
     timeout-minutes: 5
     steps:
       - uses: actions/checkout@v6
