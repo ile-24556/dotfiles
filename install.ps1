@@ -89,7 +89,7 @@ if (-not (Command-Exists cargo-binstall)) {
     ).Content
 }
 
-cargo binstall --locked -y -- `
+cargo binstall --disable-strategies compile -y -- `
     bat `
     dprint `
     fd-find `
