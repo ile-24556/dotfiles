@@ -1,14 +1,14 @@
 {{$githubCredentialHelper := "unknown" -}}
 {{if .env.isWindows -}}
 	{{$githubCredentialHelper = "!'C:\\\\Program Files\\\\GitHub CLI\\\\gh.exe' auth git-credential" -}}
-{{else if or .env.isLinux .env.isWSL -}}
+{{else if or .env.isNativeLinux .env.isWSL -}}
 	{{$githubCredentialHelper = "!/usr/bin/gh auth git-credential" -}}
 {{end -}}
 
 {{$sshSigningProgram := "unknown" -}}
 {{if .env.isWindows -}}
 	{{$sshSigningProgram = "C:/Users/marun/AppData/Local/Microsoft/WindowsApps/op-ssh-sign.exe" -}}
-{{else if .env.isLinux }}
+{{else if .env.isNativeLinux -}}
 	{{$sshSigningProgram = "/opt/1Password/op-ssh-sign" -}}
 {{else if .env.isWSL -}}
 	{{$sshSigningProgram = "/mnt/c/Users/marun/AppData/Local/Microsoft/WindowsApps/op-ssh-sign-wsl.exe" -}}

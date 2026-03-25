@@ -1,4 +1,4 @@
-{{if .env.isLinux -}}
+{{if .env.isNativeLinux -}}
 function rgn --wraps='rg --type markdown $HOME/Documents/notes/' --description 'Search notes for keyword with rg'
     rg --type markdown $argv[2..] $argv[1] $HOME/Documents/notes
 end

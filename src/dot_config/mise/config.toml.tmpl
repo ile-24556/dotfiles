@@ -1,5 +1,5 @@
 [tools]
-{{if or .env.isLinux .env.isWSL -}}
+{{if or .env.isNativeLinux .env.isWSL -}}
 chezmoi = "2"
 {{end -}}
 node = "lts"
