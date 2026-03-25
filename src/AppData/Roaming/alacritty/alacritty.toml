@@ -1,5 +1,5 @@
 [window]
-dimensions = { columns = 120, lines = 44 }
+dimensions = { columns = 110, lines = 44 }
 padding = { x = 16, y = 16 }
 dynamic_padding = true
 
