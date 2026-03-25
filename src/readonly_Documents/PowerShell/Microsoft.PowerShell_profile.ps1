@@ -60,6 +60,7 @@ function gbd() {
 function gbD() {
     git branch -D $args
 }
+Remove-Alias gc -Force
 function gc() {
     git commit $args
 }
@@ -72,6 +73,7 @@ function gd() {
 function gdc() {
     git diff --cached $args
 }
+Remove-Alias gl -Force
 function gl() {
     git log --oneline $args
 }
