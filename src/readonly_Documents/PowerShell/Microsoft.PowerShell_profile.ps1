@@ -13,6 +13,28 @@ $Env:DPRINT_CONFIG_DIR = "$HOME\.config\dprint"
 # UTF-8で出力するプログラム（wavpack等）の文字化けを防ぐ - 2024-10-14
 [Console]::OutputEncoding = [System.Text.Encoding]::GetEncoding('utf-8')
 
+Set-Variable months -Option Constant -Scope Private -Value ([String[]]@(
+    '01月', '02月', '03月', '04月', '05月', '06月',
+    '07月', '08月', '09月', '10月', '11月', '12月',
+    ''
+))
+Set-Variable culture -Option Constant -Scope Private -Value (Get-Culture -Name ja-JP).Clone()
+$culture.DateTimeFormat.DateSeparator                 = "-"
+$culture.DateTimeFormat.FirstDayOfWeek                = "Monday"
+$culture.DateTimeFormat.FullDateTimePattern           = "yyyy'-'MM'-'dd'T'HH':'mm':'ss'Z'"
+$culture.DateTimeFormat.LongDatePattern               = "yyyy-MM-dd"
+$culture.DateTimeFormat.LongTimePattern               = "HH:mm:ss"
+$culture.DateTimeFormat.MonthDayPattern               = "MM-dd"
+$culture.DateTimeFormat.ShortDatePattern              = "yyyy-MM-dd"
+$culture.DateTimeFormat.ShortTimePattern              = "HH:mm"
+$culture.DateTimeFormat.YearMonthPattern              = "yyyy-MM"
+$culture.DateTimeFormat.AbbreviatedMonthNames         = $months
+$culture.DateTimeFormat.MonthNames                    = $months
+$culture.DateTimeFormat.AbbreviatedMonthGenitiveNames = $months
+$culture.DateTimeFormat.MonthGenitiveNames            = $months
+[System.Threading.Thread]::CurrentThread.CurrentCulture   = $culture
+[System.Threading.Thread]::CurrentThread.CurrentUICulture = $culture
+
 # 2026-02-28
 function rgn() {
     rg -t md $args "$HOME/Documents/notes/"
