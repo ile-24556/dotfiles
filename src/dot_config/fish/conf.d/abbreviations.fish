@@ -3,6 +3,7 @@ abbr --add cmad -- chezmoi add
 abbr --add cmap -- chezmoi apply
 abbr --add cmcd -- chezmoi cd
 abbr --add cmd -- chezmoi diff
+abbr --add cmed -- chezmoi edit
 abbr --add cmg -- chezmoi git --
 abbr --add cmga -- chezmoi git -- add
 abbr --add cmgd -- chezmoi git -- diff
@@ -21,6 +22,7 @@ abbr --add gca -- git commit --amend
 abbr --add gd -- git diff
 abbr --add gdc -- git diff --cached
 abbr --add gds -- git diff --stat
+abbr --add gf -- git fetch
 abbr --add gl -- git log --oneline
 abbr --add glf -- git log --format=fuller --stat
 abbr --add glg -- git log --oneline --graph
@@ -28,6 +30,8 @@ abbr --add gll -- git log
 abbr --add gls -- git log --oneline --stat
 abbr --add glsf -- git ls-files
 abbr --add gmv -- git mv
+abbr --add gpl -- git pull
+abbr --add gps -- git push
 abbr --add grb -- git rebase
 abbr --add grbi -- git rebase -i
 abbr --add grm -- git rm
