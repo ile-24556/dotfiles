@@ -110,7 +110,7 @@ start_developping_dotfiles() {
   cd "${HOME}/.local/share/chezmoi/"
   pre-commit install
 
-  go install 'github.com/rhysd/actionlint/cmd/actionlint@latest'
+  mise install
 }
 
 main() {

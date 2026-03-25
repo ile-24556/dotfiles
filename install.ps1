@@ -108,4 +108,6 @@ if (-not (Get-Command pre-commit -ErrorAction SilentlyContinue)) {
 Set-Location "$HOME\.local\share\chezmoi"
 pre-commit install
 
-go install 'github.com/rhysd/actionlint/cmd/actionlint@latest'
+if (-not (Get-Command actionlint -ErrorAction SilentlyContinue)) {
+    winget install --exact --id 'rhysd.actionlint'
+}

@@ -1,4 +1,5 @@
 [tools]
+{{if not .env.isWindows}}actionlint = "latest"{{end}}
 {{if not .env.isWindows}}chezmoi = "2"{{end}}
 node = "lts"
 python = "latest"
