@@ -5,13 +5,35 @@ config.color_scheme = 'nord'
 
 config.default_prog = { 'pwsh.exe' }
 
-config.font = wezterm.font_with_fallback {
+config.font = wezterm.font_with_fallback{
   'JetBrains Mono',
   'JetBrains Mono NF',
-  'IBM Plex Sans JP',
+  { family = 'IBM Plex Sans JP', scale = 1.0 },
   'Noto Emoji',
 }
 config.font_size = 14
-config.line_height = 1.2
+config.line_height = 0.93
+
+config.window_decorations = 'RESIZE'
+
+config.initial_cols = 110
+config.initial_rows = 44
+
+wezterm.on('format-tab-title', function(tab, tabs, panes, config, hover, max_width)
+  local background = '#2e3440'
+  local foreground = '#616e88'
+
+  if tab.is_active then
+    foreground = '#d8dee9'
+  end
+
+  local title = '   ' .. wezterm.truncate_right(tab.active_pane.title, max_width - 1) .. '   '
+
+  return {
+    { Background = { Color = background } },
+    { Foreground = { Color = foreground } },
+    { Text = title },
+  }
+end)
 
 return config
