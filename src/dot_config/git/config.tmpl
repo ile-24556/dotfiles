@@ -1,7 +1,7 @@
 {{$githubCredentialHelper := "unknown" -}}
 {{if .env.isWindows -}}
 	{{$githubCredentialHelper = "!'C:\\\\Program Files\\\\GitHub CLI\\\\gh.exe' auth git-credential" -}}
-{{else if or .env.isNativeLinux .env.isWSL -}}
+{{else -}}
 	{{$githubCredentialHelper = "!/usr/bin/gh auth git-credential" -}}
 {{end -}}
 

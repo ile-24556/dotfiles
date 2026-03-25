@@ -1,6 +1,4 @@
 [tools]
-{{if or .env.isNativeLinux .env.isWSL -}}
-chezmoi = "2"
-{{end -}}
+{{if not .env.isWindows}}chezmoi = "2"{{end}}
 node = "lts"
 python = "latest"
