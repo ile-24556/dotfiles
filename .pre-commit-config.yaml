@@ -74,3 +74,15 @@ repos:
         language: unsupported
         entry: fish tests/test_prepend_path.fish
         files: fish/functions/[^/]+\.fish$
+
+      # Test install scripts
+      - id: run-ubuntu-install-script
+        name: Run install script for Ubuntu
+        language: unsupported
+        entry: bash
+        files: (^|/)install\.sh$
+      - id: run-windows-install-script
+        name: Run install script for Windows
+        language: unsupported
+        entry: pwsh
+        files: (^|/)install\.ps1$
