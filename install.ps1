@@ -19,43 +19,27 @@ if (-Not ([Security.Principal.WindowsPrincipal] [Security.Principal.WindowsIdent
 # WinGet apps
 ########################################
 
-Function Command-Exists {
-    param (
-        [Parameter(Mandatory)]
-        [ValidateCount(1, 1)]
-        [string[]]$CommandName
-    )
-
-    try {
-        if (Get-Command $CommandName) {
-            return $true
-        }
-    } catch {
-        return $false
-    }
-}
-
 # Accept WinGet agreements beforehand in CI
 if ($env:GITHUB_ACTIONS) {
     winget list --accept-source-agreements
 }
 
-if (-not (Command-Exists git)) {
+if (-not (Get-Command git -ErrorAction SilentlyContinue)) {
     winget install --exact --id 'Git.Git'
 }
-if (-not (Command-Exists gh)) {
+if (-not (Get-Command gh -ErrorAction SilentlyContinue)) {
     winget install --exact --id 'GitHub.cli'
 }
-if (-not (Command-Exists go)) {
+if (-not (Get-Command go -ErrorAction SilentlyContinue)) {
     winget install --exact --id 'GoLang.Go'
 }
-if (-not (Command-Exists pwsh)) {
+if (-not (Get-Command pwsh -ErrorAction SilentlyContinue)) {
     winget install --exact --id 'Microsoft.PowerShell'
 }
-if (-not (Command-Exists rustup)) {
+if (-not (Get-Command rustup -ErrorAction SilentlyContinue)) {
     winget install --exact --id 'Rustlang.Rustup'
 }
-if (-not (Command-Exists chezmoi)) {
+if (-not (Get-Command chezmoi -ErrorAction SilentlyContinue)) {
     winget install --exact --id 'twpayne.chezmoi'
 }
 
@@ -87,7 +71,7 @@ $env:Path += '' `
 # Tools written in Rust
 ########################################
 
-if (-not (Command-Exists cargo-binstall)) {
+if (-not (Get-Command cargo-binstall -ErrorAction SilentlyContinue)) {
     Set-ExecutionPolicy Unrestricted -Scope Process
     Invoke-Expression (
         Invoke-WebRequest "https://raw.githubusercontent.com/cargo-bins/cargo-binstall/main/install-from-binstall-release.ps1"
@@ -118,7 +102,7 @@ if ($env:GITHUB_ACTIONS) {
 # start developping dotfiles
 ########################################
 
-if (-not (Command-Exists pre-commit)) {
+if (-not (Get-Command pre-commit -ErrorAction SilentlyContinue)) {
     uv tool install pre-commit
 }
 Set-Location "$HOME\.local\share\chezmoi"
