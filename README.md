@@ -4,16 +4,16 @@ A collection of dotfiles managed with [chezmoi](https://www.chezmoi.io/).
 
 ## Installation
 
-You can use this dotfiles in the following systems.
+You can install this on the following systems.
 
-### Ubuntu / WSL2 Ubuntu
+### Ubuntu on WSL or native Ubuntu
 
 ```bash
-curl -fsS https://raw.githubusercontent.com/ile-24556/dotfiles/main/install.sh | bash
+curl -fsS 'https://raw.githubusercontent.com/ile-24556/dotfiles/main/install.sh' | bash
 ```
 
 ### Windows
 
 ```powershell
-Invoke-Expression (Invoke-WebRequest 'https://raw.githubusercontent.com/ile-24556/dotfiles/main/install.ps1').Content
+curl -fsS 'https://raw.githubusercontent.com/ile-24556/dotfiles/main/install.ps1' | pwsh
 ```
