@@ -56,13 +56,13 @@ function gb() { git branch -v $args }
 function gba() { git branch -a $args }
 function gbd() { git branch -d $args }
 function gbl() { git blame $args }
-function gc() { git commit $args }
+function gc() { git commit $args }; Remove-Alias gc -Force
 function gca() { git commit --amend $args }
 function gd() { git diff $args }
 function gdc() { git diff --cached $args }
 function gds() { git diff --stat $args }
 function gf() { git fetch $args }
-function gl() { git log --oneline $args }
+function gl() { git log --oneline $args }; Remove-Alias gl -Force
 function glf() { git log --format=fuller --stat $args }
 function glg() { git log --oneline --graph $args }
 function gll() { git log $args }
