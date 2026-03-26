@@ -1,12 +1,6 @@
 # Starship prompt
 Invoke-Expression (&starship init powershell)
 
-# Enviroment variables
-$Env:BAT_CONFIG_PATH = "$HOME\.config\bat\config"
-$Env:DPRINT_CONFIG_DIR = "$HOME\.config\dprint"
-$Env:PYTHONDEFAULTENCODING = 1 # doesn't work
-$Env:PYTHONUTF8 = 1
-
 # Output encoding
 [Console]::OutputEncoding = [System.Text.Encoding]::GetEncoding('utf-8')
 
@@ -34,9 +28,6 @@ $culture.DateTimeFormat.MonthGenitiveNames            = $months
 [System.Threading.Thread]::CurrentThread.CurrentUICulture = $culture
 
 # Aliases
-function rgn() { rg -t md $args "$HOME/Documents/notes/" }
-Set-Alias -Name open -Value explorer
-Set-Alias -Name ex -Value explorer
 function cm() { chezmoi $args }
 function cmad() { chezmoi add $args }
 function cmap() { chezmoi apply $args }

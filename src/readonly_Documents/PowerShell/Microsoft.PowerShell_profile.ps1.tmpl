@@ -1,0 +1,16 @@
+# PowerShell profile for Windows
+
+{{template "Microsoft.PowerShell_profile.ps1"}}
+
+########################################
+# Windows-specific config
+########################################
+
+$Env:BAT_CONFIG_PATH = "$HOME\.config\bat\config"
+$Env:DPRINT_CONFIG_DIR = "$HOME\.config\dprint"
+$Env:PYTHONDEFAULTENCODING = 1 # doesn't work
+$Env:PYTHONUTF8 = 1
+
+function rgn() { rg -t md $args "$HOME/Documents/notes/" }
+Set-Alias -Name open -Value explorer
+Set-Alias -Name ex -Value explorer

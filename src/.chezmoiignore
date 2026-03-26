@@ -12,12 +12,11 @@ Videos/
 
 Documents/*
 !Documents/PowerShell/
+.config/powershell/
 
 **/*.fish
 **/*.sh
 {{else -}}
-**/*.ps1
-
 AppData/
 Documents/
 {{end -}}
