@@ -162,6 +162,7 @@ symbol = " "
 [shell]
 bash_indicator = '🐃'
 fish_indicator = '🐟'
+pwsh_indicator = ''
 zsh_indicator = '🦓'
 unknown_indicator = '🤔'
 style = 'blue'
