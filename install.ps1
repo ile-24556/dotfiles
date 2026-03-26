@@ -4,6 +4,8 @@ $ErrorActionPreference = 'stop'
 Set-StrictMode -Version 3.0
 Set-PSDebug -Trace 1
 
+New-Variable MISE_VERSION -option Constant -Scope Private -value '2026.2.24'
+
 Write-Output 'Installing tools as administrator ...'
 
 # Self-elevate the script if required
@@ -82,11 +84,13 @@ cargo binstall --disable-strategies compile -y -- `
     bat `
     dprint `
     fd-find `
-    mise `
+    mise@$MISE_VERSION `
     oxipng `
     ripgrep `
     starship `
     uv `
+
+mise self-update -y
 
 ########################################
 # chezmoi

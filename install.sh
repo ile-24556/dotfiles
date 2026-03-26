@@ -9,6 +9,11 @@ check_if_system_is_ubuntu() {
   fi
 }
 
+set_tool_version_variables() {
+  declare -rg DENO_VERSION='2.6.10'
+  declare -rg MISE_VERSION='2026.2.24'
+}
+
 install_apt_packages() {
   sudo apt-get update -q
 
@@ -84,14 +89,16 @@ install_rust_and_tools() {
 
   cargo binstall --disable-strategies compile -y -- \
     bat \
-    deno \
+    deno@"${DENO_VERSION}" \
     dprint \
     fd-find \
-    mise \
+    mise@"${MISE_VERSION}" \
     ripgrep \
     starship \
     uv \
 
+  deno upgrade
+  mise self-update -y
 }
 
 chezmoi_init_and_apply() {
@@ -116,6 +123,7 @@ start_developping_dotfiles() {
 main() {
   set -eux
   check_if_system_is_ubuntu
+  set_tool_version_variables
   install_apt_packages
   install_fish
   change_login_shell
