@@ -1,8 +1,13 @@
-# Install small set of tools and apply chezmoi.
+# Install small set of tools and apply chezmoi on Windows.
 
 $ErrorActionPreference = 'stop'
 Set-StrictMode -Version 3.0
 Set-PSDebug -Trace 1
+
+if ( -not $IsWindows ) {
+    Write-Error "This script is supported only on Windows."
+    exit 1
+}
 
 New-Variable MISE_VERSION -option Constant -Scope Private -value '2026.2.24'
 

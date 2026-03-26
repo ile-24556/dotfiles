@@ -1,10 +1,10 @@
 #!/bin/bash
 #
-# Install small set of tools.
+# Install small set of tools and apply chezmoi on Ubuntu.
 
 check_if_system_is_ubuntu() {
   if ! grep -q 'ID=ubuntu' /usr/lib/os-release >/dev/null 2>&1; then
-    echo 'You are not in Ubuntu; Abort.' >&2
+    echo 'This script is supported only on Ubuntu.' >&2
     exit 1
   fi
 }
