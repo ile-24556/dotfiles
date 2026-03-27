@@ -50,18 +50,6 @@ if (-not (Get-Command chezmoi -ErrorAction SilentlyContinue)) {
     winget install --exact --id 'twpayne.chezmoi'
 }
 
-# winget install --exact --id '7zip.7zip'
-# winget install --exact --id 'AgileBits.1Password'
-# winget install --exact --id 'Canonical.Ubuntu.2404'
-# winget install --exact --id 'Google.JapaneseIME'
-# winget install --exact --id 'Microsoft.PowerToys'
-# winget install --exact --id 'Microsoft.VisualStudio.2022.BuildTools'
-# winget install --exact --id 'Microsoft.VisualStudioCode'
-# winget install --exact --id 'Microsoft.VisualStudioCode.CLI'
-# winget install --exact --id 'Microsoft.WindowsTerminal'
-# winget install --exact --id 'Microsoft.WSL'
-# winget install --exact --id 'Obsidian.Obsidian'
-
 ########################################
 # Append paths
 ########################################
@@ -88,14 +76,10 @@ if (-not (Get-Command cargo-binstall -ErrorAction SilentlyContinue)) {
 cargo binstall --disable-strategies compile -y -- `
     bat `
     dprint `
-    fd-find `
     mise@$MISE_VERSION `
-    oxipng `
     ripgrep `
     starship `
     uv `
-
-mise self-update -y
 
 ########################################
 # chezmoi

@@ -10,7 +10,6 @@ check_if_system_is_ubuntu() {
 }
 
 set_tool_version_variables() {
-  declare -rg DENO_VERSION='2.6.10'
   declare -rg MISE_VERSION='2026.2.24'
 }
 
@@ -21,19 +20,10 @@ install_apt_packages() {
     sudo apt-get upgrade -qy
   fi
 
-  if [[ "${GITHUB_ACTIONS:-}" == 'true' ]]; then
-    sudo DEBIAN_FRONTEND=noninteractive apt-get install -qy tzdata
-  else
-    sudo apt-get install -qy tzdata
-  fi
-
   sudo apt-get install -qy \
     curl \
     git \
-    golang \
-    shellcheck \
-    software-properties-common \
-    tree \
+    tzdata \
     wget \
 
 }
@@ -42,6 +32,10 @@ install_fish() {
   readonly version_pattern=' 4\.[0-9]+\.[0-9]+$'
   if command -v fish && [[ "$(command fish --version)" =~ ${version_pattern} ]]; then
     return
+  fi
+
+  if ! command -v add-apt-repository; then
+    sudo apt-get install -qy software-properties-common
   fi
 
   sudo add-apt-repository -y --ppa ppa:fish-shell/release-4
@@ -89,16 +83,12 @@ install_rust_and_tools() {
 
   cargo binstall --disable-strategies compile -y -- \
     bat \
-    deno@"${DENO_VERSION}" \
     dprint \
-    fd-find \
     mise@"${MISE_VERSION}" \
     ripgrep \
     starship \
     uv \
 
-  deno upgrade
-  mise self-update -y
 }
 
 chezmoi_init_and_apply() {
@@ -116,8 +106,6 @@ start_developping_dotfiles() {
   fi
   cd "${HOME}/.local/share/chezmoi/"
   pre-commit install
-
-  mise install
 }
 
 main() {
