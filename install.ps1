@@ -31,24 +31,19 @@ if ($env:GITHUB_ACTIONS) {
     winget list --accept-source-agreements
 }
 
-if (-not (Get-Command git -ErrorAction SilentlyContinue)) {
-    winget install --exact --id 'Git.Git'
+function Invoke-WinGetInstallation([string]$id, [string]$commandName) {
+    if (Get-Command "$commandName" -ErrorAction SilentlyContinue) {
+        return
+    }
+    winget install --exact --id "$id"
 }
-if (-not (Get-Command gh -ErrorAction SilentlyContinue)) {
-    winget install --exact --id 'GitHub.cli'
-}
-if (-not (Get-Command go -ErrorAction SilentlyContinue)) {
-    winget install --exact --id 'GoLang.Go'
-}
-if (-not (Get-Command pwsh -ErrorAction SilentlyContinue)) {
-    winget install --exact --id 'Microsoft.PowerShell'
-}
-if (-not (Get-Command rustup -ErrorAction SilentlyContinue)) {
-    winget install --exact --id 'Rustlang.Rustup'
-}
-if (-not (Get-Command chezmoi -ErrorAction SilentlyContinue)) {
-    winget install --exact --id 'twpayne.chezmoi'
-}
+
+Invoke-WinGetInstallation 'Git.Git'                 'git'
+Invoke-WinGetInstallation 'GitHub.cli'              'gh'
+Invoke-WinGetInstallation 'GoLang.Go'               'go'
+Invoke-WinGetInstallation 'Microsoft.PowerShell'    'pwsh'
+Invoke-WinGetInstallation 'Rustlang.Rustup'         'rustup'
+Invoke-WinGetInstallation 'twpayne.chezmoi'         'chezmoi'
 
 ########################################
 # Append paths
@@ -101,6 +96,4 @@ if (-not (Get-Command pre-commit -ErrorAction SilentlyContinue)) {
 Set-Location "$HOME\.local\share\chezmoi"
 pre-commit install
 
-if (-not (Get-Command actionlint -ErrorAction SilentlyContinue)) {
-    winget install --exact --id 'rhysd.actionlint'
-}
+Invoke-WinGetInstallation 'rhysd.actionlint' 'actionlint'
