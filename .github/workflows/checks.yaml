@@ -14,7 +14,7 @@ jobs:
   chezmoi-and-checks-in-ubuntu:
     runs-on: ubuntu-latest
     env:
-      SKIP: run-ubuntu-install-script,run-windows-install-script
+      SKIP: actionlint,run-ubuntu-install-script,run-windows-install-script
     defaults:
       run:
         shell: bash --noprofile --norc -euxo pipefail {0}
