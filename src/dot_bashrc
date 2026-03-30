@@ -42,5 +42,8 @@ if ! shopt -oq posix; then
 fi
 
 
-source "${HOME:?}/.aliases.sh"
+alias l='ls --color=auto --time-style=long-iso'
+alias la='l --almost-all'
+alias ll='l --all -l'
+
 eval "$(starship init bash)"
