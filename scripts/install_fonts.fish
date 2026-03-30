@@ -96,10 +96,10 @@ function others_from_google_fonts
 
     set -l base_url https://raw.githubusercontent.com/google/fonts/main/
 
-    curl -fsSO $base_url'ofl/opensans/OpenSans%5Bwdth%2Cwght%5D.ttf'
-    curl -fsSO $base_url'ofl/opensans/OpenSans-Italic%5Bwdth%2Cwght%5D.ttf'
-    curl -fsSO $base_url'ofl/notoemoji/NotoEmoji%5Bwght%5D.ttf'
-    curl -fsSO $base_url'ofl/notocoloremoji/NotoColorEmoji-Regular.ttf'
+    curl -fsS $base_url'ofl/opensans/OpenSans%5Bwdth%2Cwght%5D.ttf' -o 'OpenSans[wdth,wght].ttf'
+    curl -fsS $base_url'ofl/opensans/OpenSans-Italic%5Bwdth%2Cwght%5D.ttf' -o 'OpenSans-Italic[wdth,wght].ttf'
+    curl -fsS $base_url'ofl/notoemoji/NotoEmoji%5Bwght%5D.ttf' -o 'NotoEmoji[wght].ttf'
+    curl -fsS $base_url'ofl/notocoloremoji/NotoColorEmoji-Regular.ttf' -o 'NotoColorEmoji-Regular.ttf'
 end
 
 main
