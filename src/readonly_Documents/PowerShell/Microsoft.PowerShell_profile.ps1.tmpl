@@ -14,3 +14,16 @@ $env:PYTHONWARNDEFAULTENCODING = 'true'
 function rgn() { rg -t md $args "$HOME/Documents/notes/" }
 Set-Alias -Name open -Value explorer
 Set-Alias -Name ex -Value explorer
+
+function Update-Everything() {
+    winget upgrade
+
+    cargo binstall -- ((-split (cargo install --list | rg ' v\d+\.\d+\.\d+') | rg -v 'v\d+\.\d+\.\d+') -notmatch '(deno|mise)')
+
+    if (Get-Command deno -ErrorAction SilentlyContinue) {
+        deno upgrade
+    }
+    if (Get-Command mise -ErrorAction SilentlyContinue) {
+        mise self-update
+    }
+}

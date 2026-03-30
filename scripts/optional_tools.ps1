@@ -18,3 +18,5 @@ if ( -not $IsWindows ) {
 # winget install --exact --id 'Obsidian.Obsidian'
 
 cargo binstall --disable-strategies compile -- fd-find oxipng
+
+Update-Everything
