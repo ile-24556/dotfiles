@@ -90,6 +90,8 @@ if ($env:GITHUB_ACTIONS) {
 # start developping dotfiles
 ########################################
 
+mise install
+
 if (-not (Get-Command pre-commit -ErrorAction SilentlyContinue)) {
     uv tool install pre-commit
 }

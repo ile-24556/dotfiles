@@ -101,6 +101,8 @@ chezmoi_init_and_apply() {
 }
 
 start_developping_dotfiles() {
+  mise install
+
   if ! command -v pre-commit; then
     uv tool install pre-commit
   fi
