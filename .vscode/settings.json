@@ -1,5 +1,6 @@
 {
   "files.associations": {
+    "**/fontconfig/**/*.conf": "xml",
     "**/ghostty/config": "properties",
     "**/git/config.tmpl": "properties",
   },
