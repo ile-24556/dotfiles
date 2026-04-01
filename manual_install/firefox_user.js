@@ -1,3 +1,6 @@
+// Affect UI font fallback
+user_pref("font.cjk_pref_fallback_order", "ja,zh-cn,zh-hk,zh-tw,ko");
+
 // monospace fonts
 user_pref("font.name.monospace.ja", "JetBrains Mono, IBM Plex Sans JP, Noto Emoji");
 user_pref("font.name.monospace.x-unicode", "JetBrains Mono, IBM Plex Sans JP, Noto Emoji");
