@@ -90,6 +90,7 @@ if ($env:GITHUB_ACTIONS) {
 # start developping dotfiles
 ########################################
 
+mise self-update
 mise install
 
 if (-not (Get-Command pre-commit -ErrorAction SilentlyContinue)) {

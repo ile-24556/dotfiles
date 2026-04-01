@@ -101,6 +101,7 @@ chezmoi_init_and_apply() {
 }
 
 start_developping_dotfiles() {
+  mise self-update
   mise install
 
   if ! command -v pre-commit; then
