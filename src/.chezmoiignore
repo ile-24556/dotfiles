@@ -19,4 +19,6 @@ Documents/*
 {{else -}}
 AppData/
 Documents/
+
+/*.ps1
 {{end -}}
