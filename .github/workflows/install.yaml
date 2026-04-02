@@ -5,6 +5,7 @@ on:
   schedule:
     - cron: "30 04 */6 * *"
       timezone: "Asia/Tokyo"
+  workflow_dispatch:
 permissions:
   contents: read
 concurrency:
