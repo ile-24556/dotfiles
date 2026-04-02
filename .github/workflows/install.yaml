@@ -1,9 +1,10 @@
 name: Install dotfiles on runner
 on:
-  push:
-    branches: [main]
   pull_request:
     branches: [main]
+  schedule:
+    - cron: "30 04 */6 * *"
+      timezone: "Asia/Tokyo"
 permissions:
   contents: read
 concurrency:
