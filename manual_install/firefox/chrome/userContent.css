@@ -1,0 +1,79 @@
+@charset "UTF-8";
+
+/* Upgrade legacy fonts if possible. */
+@font-face {
+  font-family: "Arial";
+  src:
+    local("Arial Nova"),
+    local("Arial");
+}
+@font-face {
+  font-family: "Georgia";
+  src:
+    local("Georgia Pro"),
+    local("Georgia");
+}
+@font-face {
+  font-family: "Verdana";
+  src:
+    local("Verdana Pro"),
+    local("Verdana");
+}
+@font-face {
+  font-family: "Courier";
+  src:
+    local("Courier Prime"),
+    local("Courier");
+}
+@font-face {
+  font-family: "Courier New";
+  src:
+    local("Courier Prime"),
+    local("Courier New");
+}
+@font-face {
+  font-family: "Gill Sans";
+  src:
+    local("Gill Sans Nova"),
+    local("Gill Sans");
+}
+@font-face {
+  font-family: "Rockwell";
+  src:
+    local("Rockwell Nova"),
+    local("Rockwell");
+}
+
+/* Skip dirty Japanese fonts. */
+@font-face {
+  font-family: "MS PGothic";
+  src: local("foobar");
+}
+@font-face {
+  font-family: "MS UI Gothic";
+  src: local("foobar");
+}
+@font-face {
+  font-family: "MS Gothic";
+  src: local("foobar");
+}
+@font-face {
+  font-family: "Meiryo UI";
+  src: local("foobar");
+}
+@font-face {
+  font-family: "Meiryo";
+  src: local("foobar");
+}
+@font-face {
+  font-family: "Yu Gothic";
+  src: local("foobar");
+}
+@font-face {
+  font-family: "Yu Gothic Medium";
+  src: local("foobar");
+}
+@font-face {
+  font-family: "system-ui-ja";
+  src: local("foobar");
+}

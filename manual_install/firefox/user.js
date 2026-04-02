@@ -15,3 +15,6 @@ user_pref("font.name.sans-serif.x-western", "Open Sans, IBM Plex Sans JP, Noto E
 user_pref("font.name.serif.ja", "Georgia Pro, Noto Serif, Noto Serif CJK JP, Noto Emoji");
 user_pref("font.name.serif.x-unicode", "Georgia Pro, Noto Serif, Noto Serif CJK JP, Noto Emoji");
 user_pref("font.name.serif.x-western", "Georgia Pro, Noto Serif, Noto Serif CJK JP, Noto Emoji");
+
+// Enable chrome/user{Chrome,Content}.css
+user_pref("toolkit.legacyUserProfileCustomizations.stylesheets", true);
