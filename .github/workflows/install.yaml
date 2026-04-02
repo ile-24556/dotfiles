@@ -1,0 +1,33 @@
+name: Install dotfiles on runner
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+permissions:
+  contents: read
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  chezmoi-and-checks-in-ubuntu:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash --noprofile --norc -euxo pipefail {0}
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v6
+      - name: Install dotfiles and tools
+        run: bash ./install.sh
+  chezmoi-in-windows:
+    runs-on: windows-latest
+    defaults:
+      run:
+        shell: pwsh
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v6
+      - name: Install dotfiles and tools
+        run: pwsh .\install.ps1
