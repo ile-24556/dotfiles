@@ -50,11 +50,19 @@
   src: local("foobar");
 }
 @font-face {
+  font-family: "ＭＳ Ｐゴシック";
+  src: local("foobar");
+}
+@font-face {
   font-family: "MS UI Gothic";
   src: local("foobar");
 }
 @font-face {
   font-family: "MS Gothic";
+  src: local("foobar");
+}
+@font-face {
+  font-family: "ＭＳ ゴシック";
   src: local("foobar");
 }
 @font-face {
@@ -66,11 +74,27 @@
   src: local("foobar");
 }
 @font-face {
+  font-family: "メイリオ";
+  src: local("foobar");
+}
+@font-face {
   font-family: "Yu Gothic";
   src: local("foobar");
 }
 @font-face {
+  font-family: "游ゴシック";
+  src: local("foobar");
+}
+@font-face {
+  font-family: "游ゴシック体";
+  src: local("foobar");
+}
+@font-face {
   font-family: "Yu Gothic Medium";
+  src: local("foobar");
+}
+@font-face {
+  font-family: "游ゴシック Medium";
   src: local("foobar");
 }
 @font-face {
