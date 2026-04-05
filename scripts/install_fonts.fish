@@ -72,6 +72,8 @@ function ibm_plex
 end
 
 function source_code_pro
+    cd (mktemp -d)
+
     gh release -R adobe-fonts/source-code-pro download -p 'VF-source-code-VF-*.zip'
     unzip VF-source-code-VF-*.zip 'VF/*.otf'
     mv VF $FONTS_DIR/source-code-pro
