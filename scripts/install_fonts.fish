@@ -6,6 +6,7 @@ function main
     jetbrains_mono
     ibm_plex
     source_code_pro
+    inter_variable
     nerd_fonts
     others_from_google_fonts
 
@@ -77,6 +78,14 @@ function source_code_pro
     gh release -R adobe-fonts/source-code-pro download -p 'VF-source-code-VF-*.zip'
     unzip VF-source-code-VF-*.zip 'VF/*.otf'
     mv VF $FONTS_DIR/source-code-pro
+end
+
+function inter_variable
+    cd (mktemp -d)
+    gh release -R rsms/inter download -p 'Inter-*.*[0-9].zip'
+    mkdir InterVariable
+    unzip Inter-*.zip 'InterVariable*.ttf' -d InterVariable
+    mv InterVariable $FONTS_DIR
 end
 
 function nerd_fonts
