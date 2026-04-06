@@ -15,7 +15,6 @@ jobs:
   chezmoi-and-checks-in-ubuntu:
     runs-on: ubuntu-latest
     env:
-      FISH_VER: ""
       SKIP: dprint-fmt,actionlint,run-ubuntu-install-script,run-windows-install-script
     defaults:
       run:
@@ -24,16 +23,13 @@ jobs:
     steps:
       - uses: actions/checkout@v6
       - name: Install fish from GitHub releases
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          if [[ -n "${FISH_VER:-}" ]]; then
-            tag="${FISH_VER}"
-          else
-            tag="$(curl -fsS 'https://api.github.com/repos/fish-shell/fish-shell/releases/latest' | jq -r '.tag_name')"
-          fi
-          url="https://github.com/fish-shell/fish-shell/releases/download/${tag}/fish-${tag}-linux-x86_64.tar.xz"
-          mkdir bin
-          curl -fsSL "${url}" | tar -xJ --directory=bin
-          echo "$(pwd)/bin" >> "${GITHUB_PATH}"
+          cd "$(mktemp -d)"
+          gh release -R fish-shell/fish-shell download -p 'fish-*-linux-x86_64.tar.xz'
+          mkdir -p "${HOME}/.local/bin"
+          tar -xf fish-*-linux-x86_64.tar.xz -C "${HOME}/.local/bin"
       - uses: dprint/check@v2.3
         with:
           args: --list-different
