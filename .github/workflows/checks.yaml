@@ -14,8 +14,6 @@ concurrency:
 jobs:
   chezmoi-and-checks-in-ubuntu:
     runs-on: ubuntu-latest
-    env:
-      SKIP: dprint-fmt,actionlint,run-ubuntu-install-script,run-windows-install-script
     defaults:
       run:
         shell: bash --noprofile --norc -euxo pipefail {0}
@@ -37,4 +35,6 @@ jobs:
         with:
           enable-cache: false
       - name: Check with pre-commit
+        env:
+          SKIP: dprint-fmt,actionlint,run-ubuntu-install-script,run-windows-install-script
         run: uvx pre-commit run --all
