@@ -20,6 +20,11 @@ jobs:
     timeout-minutes: 3
     steps:
       - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+      - name: Restore dprint cache if possible
+        uses: actions/cache@668228422ae6a00e4ad889ee87cd7109ec5666a7 # v5.0.4
+        with:
+          path: ~/.cache/dprint
+          key: ${{ runner.os }}-dprint-${{ hashFiles('.dprint.jsonc') }}
       - uses: dprint/check@9cb3a2b17a8e606d37aae341e49df3654933fc23 # v2.3
         with:
           args: --list-different
@@ -34,6 +39,11 @@ jobs:
       - uses: astral-sh/setup-uv@cec208311dfd045dd5311c1add060b2062131d57 # v8.0.0
         with:
           enable-cache: false
+      - name: Restore pre-commit cache if possible
+        uses: actions/cache@668228422ae6a00e4ad889ee87cd7109ec5666a7 # v5.0.4
+        with:
+          path: ~/.cache/pre-commit
+          key: ${{ runner.os }}-pre-commit-${{ hashFiles('.pre-commit-config.yaml') }}
       - name: Check with pre-commit
         env:
           SKIP: dprint-fmt,actionlint,run-ubuntu-install-script,run-windows-install-script
