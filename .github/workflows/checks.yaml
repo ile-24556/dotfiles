@@ -1,4 +1,4 @@
-name: Check code with pre-commit
+name: Format and lint
 on:
   push:
     branches: [main]
@@ -12,7 +12,7 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  chezmoi-and-checks-in-ubuntu:
+  format-and-lint:
     runs-on: ubuntu-latest
     defaults:
       run:

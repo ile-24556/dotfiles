@@ -13,7 +13,7 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  chezmoi-and-checks-in-ubuntu:
+  install-on-ubuntu:
     runs-on: ubuntu-latest
     defaults:
       run:
@@ -23,7 +23,7 @@ jobs:
       - uses: actions/checkout@v6
       - name: Install dotfiles and tools
         run: bash ./install.sh
-  chezmoi-in-windows:
+  install-on-windows:
     runs-on: windows-latest
     defaults:
       run:
