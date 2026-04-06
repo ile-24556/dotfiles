@@ -19,7 +19,7 @@ jobs:
     defaults:
       run:
         shell: bash --noprofile --norc -euxo pipefail {0}
-    timeout-minutes: 5
+    timeout-minutes: 3
     steps:
       - uses: actions/checkout@v6
       - name: Install fish from GitHub releases
