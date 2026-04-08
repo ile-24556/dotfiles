@@ -1,9 +1,11 @@
-name: checks
+name: Install dotfiles
 on:
-  push:
-    branches: [main]
   pull_request:
     branches: [main]
+  schedule:
+    - cron: "30 04 */6 * *"
+      timezone: "Asia/Tokyo"
+  workflow_dispatch:
 permissions:
   contents: read
 concurrency:
@@ -11,29 +13,25 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  chezmoi-and-checks-in-ubuntu:
+  ubuntu:
+    name: Install dotfiles on Ubuntu
     runs-on: ubuntu-latest
-    env:
-      SKIP: actionlint,run-ubuntu-install-script,run-windows-install-script
     defaults:
       run:
         shell: bash --noprofile --norc -euxo pipefail {0}
-    timeout-minutes: 5
+    timeout-minutes: 3
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
       - name: Install dotfiles and tools
         run: bash ./install.sh
-      - name: Check with pre-commit
-        run: |
-          export PATH="$HOME/.local/share/mise/shims:${HOME}/.cargo/bin:${HOME}/.local/bin:$HOME/go/bin:${PATH}"
-          pre-commit run --all
-  chezmoi-in-windows:
+  windows:
+    name: Install dotfiles on Windows
     runs-on: windows-latest
     defaults:
       run:
         shell: pwsh
-    timeout-minutes: 5
+    timeout-minutes: 3
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
       - name: Install dotfiles and tools
         run: pwsh .\install.ps1
