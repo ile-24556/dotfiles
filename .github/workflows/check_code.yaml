@@ -1,4 +1,4 @@
-name: Format and lint
+name: Check code
 on:
   push:
     branches: [main]
@@ -12,7 +12,8 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  format-and-lint:
+  check-code:
+    name: Format, lint and test code
     runs-on: ubuntu-latest
     defaults:
       run:
