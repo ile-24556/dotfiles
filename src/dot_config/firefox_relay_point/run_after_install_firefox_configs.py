@@ -24,7 +24,9 @@ def main():
     items = [str(p) for p in Path().glob("*") if p.suffix != ".md"]
     item_args = " ".join(items)
 
-    for profile in profiles_path.glob("*.default*"):
+    for profile in profiles_path.glob(
+        "[a-z0-9][a-z0-9][a-z0-9][a-z0-9][a-z0-9][a-z0-9][a-z0-9][a-z0-9].*/",
+    ):
         print(f"Copying {items} into '{profile}'")
         # Use system command to easily overwrite destination files
         if sys.platform == "linux":
