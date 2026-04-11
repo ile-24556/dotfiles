@@ -1,7 +1,8 @@
 name: Install dotfiles
 on:
   pull_request_target:
-    branches: [main]
+    branches:
+      - main
   schedule:
     - cron: "30 04 */6 * *"
       timezone: "Asia/Tokyo"
