@@ -13,5 +13,6 @@ prepend_path \
     $HOME/.cargo/bin \
     $HOME/.local/share/mise/shims
 
+set -gx EDITOR nano
 set -gx PYTHONUTF8 1
 set -gx PYTHONWARNDEFAULTENCODING true
