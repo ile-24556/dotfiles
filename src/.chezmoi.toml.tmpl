@@ -12,3 +12,18 @@ command = "/bin/fish"
 isNativeLinux = {{if and (eq .chezmoi.os "linux") (not (contains "-microsoft-standard-WSL2" .chezmoi.kernel.osrelease))}}true{{else}}false{{end}}
 isWindows = {{if eq .chezmoi.os "windows"}}true{{else}}false{{end}}
 isWSL = {{if and (eq .chezmoi.os "linux") (contains "-microsoft-standard-WSL2" .chezmoi.kernel.osrelease)}}true{{else}}false{{end}}
+
+[data.fonts]
+serif = [
+  "Source Serif 4 Variable",
+  "Noto Serif CJK JP",
+]
+sansSerif = [
+  "Inter Variable",
+  "IBM Plex Sans JP",
+  "Noto Sans CJK JP",
+]
+monospace = [
+  "JetBrains Mono",
+  "JetBrainsMono Nerd Font",
+]
