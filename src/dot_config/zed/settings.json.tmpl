@@ -13,15 +13,19 @@
     "dark": "One Dark",
   },
 
-  "buffer_font_family": "JetBrains Mono",
-  "buffer_font_fallbacks": [],
+  "buffer_font_family": {{first .fonts.monospace | quote}},
+  "buffer_font_fallbacks": [
+    {{rest .fonts.monospace | quoteList | join ",\n    "}},
+  ],
   "buffer_font_features": {
     "zero": true, // slashed zero
   },
   "buffer_font_size": 24,
 
-  "ui_font_family": "Inter Variable",
-  "ui_font_fallbacks": [],
+  "ui_font_family": {{first .fonts.sansSerif | quote}},
+  "ui_font_fallbacks": [
+    {{rest .fonts.sansSerif | quoteList | join ",\n    "}},
+  ],
   "ui_font_features": {
     "tnum": true, // tabular numbers
     "ss02": true, // disambiguation w/ zero
@@ -29,8 +33,10 @@
   "ui_font_size": 21,
 
   "terminal": {
-    "font_family": "JetBrainsMono Nerd Font",
-    "font_fallbacks": [],
+    "font_family": {{first .fonts.terminal | quote}},
+    "font_fallbacks": [
+      {{rest .fonts.terminal | quoteList | join ",\n      "}},
+    ],
     "font_size": 21,
   },
 
