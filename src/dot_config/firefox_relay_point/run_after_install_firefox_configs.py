@@ -30,9 +30,9 @@ def main():
         print(f"Copying {items} into '{profile}'")
         # Use system command to easily overwrite destination files
         if sys.platform == "linux":
-            subprocess.run([f"cp -r {item_args} {profile}"], shell=True)
+            _ = subprocess.run([f"cp -r {item_args} {profile}"], shell=True)
         else:
-            subprocess.run(
+            _ = subprocess.run(
                 [f"Copy-Item -Force -Recurse -Path {item_args} -Destination {profile}"],
                 shell=True,
             )
