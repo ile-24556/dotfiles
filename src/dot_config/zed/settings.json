@@ -1,0 +1,42 @@
+// Zed settings
+//
+// For information on how to configure Zed, see the Zed
+// documentation: https://zed.dev/docs/configuring-zed
+//
+// To see all of Zed's default settings without changing your
+// custom settings, run `zed: open default settings` from the
+// command palette (cmd-shift-p / ctrl-shift-p)
+{
+  "theme": {
+    "mode": "dark",
+    "light": "Catppuccin Latte",
+    "dark": "One Dark",
+  },
+
+  "buffer_font_family": "JetBrains Mono",
+  "buffer_font_fallbacks": [],
+  "buffer_font_features": {
+    "zero": true, // slashed zero
+  },
+  "buffer_font_size": 24,
+
+  "ui_font_family": "Inter Variable",
+  "ui_font_fallbacks": [],
+  "ui_font_features": {
+    "tnum": true, // tabular numbers
+    "ss02": true, // disambiguation w/ zero
+  },
+  "ui_font_size": 21,
+
+  "terminal": {
+    "font_family": "JetBrainsMono Nerd Font",
+    "font_fallbacks": [],
+    "font_size": 21,
+  },
+
+  "show_whitespaces": "boundary",
+  "wrap_guides": [50, 72, 80, 100],
+
+  "format_on_save": "off",
+  "autosave": "on_focus_change",
+}

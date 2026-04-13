@@ -15,7 +15,7 @@ repos:
       - id: check-executables-have-shebangs
       - id: check-illegal-windows-names
       - id: check-json
-        exclude: \.vscode/settings\.json
+        exclude: (\.vscode/settings\.json|zed/settings\.json)
       - id: check-merge-conflict
       - id: check-symlinks
       - id: check-toml
@@ -32,7 +32,7 @@ repos:
       - id: forbid-submodules
       - id: mixed-line-ending
       - id: pretty-format-json
-        exclude: (\.vscode/settings\.json|dprint\.json)
+        exclude: (\.vscode/settings\.json|dprint\.json|zed/settings\.json)
       - id: requirements-txt-fixer
       - id: trailing-whitespace
   - repo: https://github.com/DavidAnson/markdownlint-cli2

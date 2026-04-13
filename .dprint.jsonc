@@ -4,6 +4,7 @@
   "json": {
     "jsonTrailingCommaFiles": [
       ".vscode/settings.json",
+      "src/dot_config/zed/settings.json",
     ],
   },
   "markdown": {
