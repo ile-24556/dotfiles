@@ -3,9 +3,7 @@
 ########################################
 
 font-family = ""
-font-family = "JetBrains Mono"
-font-family = "JetBrainsMono NF"
-font-family = "IBM Plex Sans JP"
+font-family = {{.fonts.monospace | quoteList | join "\nfont-family = "}}
 font-size = 14
 adjust-cell-height = -10%
 

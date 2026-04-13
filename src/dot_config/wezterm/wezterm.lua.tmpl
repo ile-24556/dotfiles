@@ -6,10 +6,7 @@ config.color_scheme = 'nord'
 config.default_prog = { 'pwsh.exe' }
 
 config.font = wezterm.font_with_fallback{
-  'JetBrains Mono',
-  'JetBrains Mono NF',
-  { family = 'IBM Plex Sans JP', scale = 1.0 },
-  'Noto Emoji',
+  {{.fonts.monospace | quoteList | join ",\n  "}}
 }
 config.font_size = 14
 config.line_height = 0.93
