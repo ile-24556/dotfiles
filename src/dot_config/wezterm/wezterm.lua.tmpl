@@ -6,7 +6,7 @@ config.color_scheme = 'nord'
 config.default_prog = { 'pwsh.exe' }
 
 config.font = wezterm.font_with_fallback{
-  {{.fonts.monospace | quoteList | join ",\n  "}}
+  {{.fonts.terminal | quoteList | join ",\n  "}}
 }
 config.font_size = 14
 config.line_height = 0.93
