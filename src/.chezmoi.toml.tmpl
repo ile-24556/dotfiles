@@ -6,6 +6,12 @@ command = "pwsh.exe"
 [interpreters.fish]
 command = "fish"
 
+{{if eq .chezmoi.os "windows" -}}
+[interpreters.py]
+command = "uv"
+args = ["run", "python"]
+{{- end}}
+
 [data.env]
 # One of the following three should be true.
 isNativeLinux = {{if and (eq .chezmoi.os "linux") (not (contains "-microsoft-standard-WSL2" .chezmoi.kernel.osrelease))}}true{{else}}false{{end}}
