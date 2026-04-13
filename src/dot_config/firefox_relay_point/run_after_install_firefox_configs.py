@@ -12,7 +12,7 @@ def main():
     match sys.platform:
         case "linux":
             profiles_path = Path(os.environ["XDG_CONFIG_HOME"]) / "mozilla/firefox"
-        case "windows":
+        case "win32":
             profiles_path = Path(os.environ["APPDATA"]) / r"Mozilla\Firefox\Profiles"
         case _:
             raise RuntimeError("Unexpected platform:", sys.platform)
