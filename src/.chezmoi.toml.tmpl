@@ -25,19 +25,19 @@ serif = [
   "Noto Emoji",
 ]
 sansSerif = [
-  "Inter Variable",
+  {{if eq .chezmoi.os "windows"}}"Inter Variable Text"{{else}}"Inter Variable"{{end}},
   "IBM Plex Sans JP",
   "Noto Emoji",
 ]
 monospace = [
   "JetBrains Mono",
-  "Inter Variable",
+  {{if eq .chezmoi.os "windows"}}"Inter Variable Text"{{else}}"Inter Variable"{{end}},
   "IBM Plex Sans JP",
   "Noto Emoji",
 ]
 terminal = [
   "JetBrainsMono Nerd Font",
-  "Inter Variable",
+  {{if eq .chezmoi.os "windows"}}"Inter Variable Text"{{else}}"Inter Variable"{{end}},
   "IBM Plex Sans JP",
   "Noto Emoji",
 ]
