@@ -4,9 +4,8 @@ from pathlib import Path
 
 
 def main():
-    print("[Firefox configs] Installing configs ...")
-
-    assert Path.cwd() == Path.home() / ".config/firefox_relay_point"
+    if (cwd := Path.cwd()) != Path.home() / ".config/firefox_relay_point":
+        raise RuntimeError("Unexpected working directory:", cwd)
 
     match sys.platform:
         case "linux":
@@ -35,4 +34,6 @@ def main():
 
 
 if __name__ == "__main__":
+    print("[Firefox configs] Installing configs ...")
     main()
+    print("[Firefox configs] Done.")
