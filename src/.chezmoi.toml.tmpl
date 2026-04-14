@@ -6,11 +6,9 @@ command = "pwsh.exe"
 [interpreters.fish]
 command = "fish"
 
-{{if eq .chezmoi.os "windows" -}}
 [interpreters.py]
-command = "uv"
-args = ["run", "python"]
-{{- end}}
+command = "mise"
+args = ["exec", "python", "--", "python"]
 
 [data.env]
 # One of the following three should be true.
