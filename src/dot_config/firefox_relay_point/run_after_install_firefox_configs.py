@@ -1,5 +1,4 @@
 import os
-import subprocess
 import sys
 from pathlib import Path
 
@@ -21,21 +20,18 @@ def main():
         print(f"Firefox profiles directory not found:\n{profiles_path}")
         return
 
-    items = [str(p) for p in Path().glob("*") if p.suffix != ".md"]
-    item_args = " ".join(items)
+    root_src_files = [p for p in Path().glob("*") if p.suffix in (".js", ".css")]
+    chrome_src_files = list(Path("chrome").glob("*"))
 
     for profile in profiles_path.glob(
         "[a-z0-9][a-z0-9][a-z0-9][a-z0-9][a-z0-9][a-z0-9][a-z0-9][a-z0-9].*/",
     ):
-        print(f"Copying {items} into '{profile}'")
-        # Use system command to easily overwrite destination files
-        if sys.platform == "linux":
-            _ = subprocess.run([f"cp -r {item_args} {profile}"], shell=True)
-        else:
-            _ = subprocess.run(
-                [f"Copy-Item -Force -Recurse -Path {item_args} -Destination {profile}"],
-                shell=True,
-            )
+        for p in root_src_files:
+            p.copy(profile / p.name)
+
+        (chrome_dst_dir := profile / "chrome").mkdir(exist_ok=True)
+        for p in chrome_src_files:
+            p.copy(chrome_dst_dir / p.name)
 
 
 if __name__ == "__main__":
