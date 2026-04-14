@@ -3,7 +3,7 @@ repos:
     hooks:
       - id: dprint-fmt
         name: format with dprint
-        entry: dprint fmt
+        entry: dprint fmt --allow-no-files
         language: unsupported
         files: \.(js|json|jsonc|md|toml|yaml)$
 
