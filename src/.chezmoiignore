@@ -9,6 +9,7 @@ Videos/
 
 {{if .env.isWindows -}}
 .config/fish/
+.config/zed/settings.json
 
 Documents/*
 !Documents/PowerShell/
