@@ -4,7 +4,7 @@ from pathlib import Path
 
 
 def main():
-    print(f"{'-' * 40}\nInsatlling Firefox configs\n{'-' * 40}")
+    print("[Firefox configs] Installing configs ...")
 
     assert Path.cwd() == Path.home() / ".config/firefox_relay_point"
 
@@ -14,10 +14,10 @@ def main():
         case "win32":
             profiles_path = Path(os.environ["APPDATA"]) / r"Mozilla\Firefox\Profiles"
         case _:
-            raise RuntimeError("Unexpected platform:", sys.platform)
+            raise RuntimeError(f"[Firefox configs] Unexpected platform: {sys.platform}")
 
     if not profiles_path.exists():
-        print(f"Firefox profiles directory not found:\n{profiles_path}")
+        print(f"[Firefox configs] Profiles directory not found:\n{profiles_path}")
         return
 
     root_src_files = [p for p in Path().glob("*") if p.suffix in (".js", ".css")]
