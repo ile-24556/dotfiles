@@ -40,6 +40,7 @@ abbr --add grst -- git reset HEAD
 abbr --add grv -- git revert
 abbr --add gs -- git status --short
 abbr --add gsh -- git show
+abbr --add gshf -- git show --format=fuller --stat
 abbr --add gsl -- git status
 abbr --add gw -- git switch
 abbr --add py -- python3.14 -X utf8 -X warn_default_encoding
