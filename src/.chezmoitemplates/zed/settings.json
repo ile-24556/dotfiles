@@ -28,6 +28,7 @@
   ],
   "ui_font_features": {
     "tnum": true, // tabular numbers
+    "ss01": true, // open digits
     "ss02": true, // disambiguation w/ zero
   },
   "ui_font_size": 21,
