@@ -107,25 +107,15 @@
     </prefer>
   </alias>
   <alias binding="strong">
-    <family>my-monospace</family>
-    <prefer>
-      <family>{{.fonts.monospace | join "</family>\n      <family>"}}</family>
-      <family>my-sans-serif</family>
-      <family>my-emoji</family>
-    </prefer>
-  </alias>
-  <alias binding="strong">
     <family>my-sans-serif</family>
     <prefer>
       <family>{{.fonts.sansSerif | join "</family>\n      <family>"}}</family>
-      <family>my-emoji</family>
     </prefer>
   </alias>
   <alias binding="strong">
-    <family>my-emoji</family>
+    <family>my-monospace</family>
     <prefer>
-      <family>Noto Emoji</family>
-      <family>Noto Color Emoji</family>
+      <family>{{.fonts.monospace | join "</family>\n      <family>"}}</family>
     </prefer>
   </alias>
 </fontconfig>
