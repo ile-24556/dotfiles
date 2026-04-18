@@ -38,12 +38,16 @@ def main():
 
 
 def system_is_wsl() -> bool:
-    return subprocess.run(
-        ["uname", "-r"],
-        capture_output=True,
-        check=True,
-        encoding="utf_8",
-    ).stdout.strip().endswith("-microsoft-standard-WSL2")
+    return (
+        subprocess.run(
+            ["uname", "-r"],
+            capture_output=True,
+            check=True,
+            encoding="utf_8",
+        )
+        .stdout.strip()
+        .endswith("-microsoft-standard-WSL2")
+    )
 
 
 if __name__ == "__main__":
