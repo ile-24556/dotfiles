@@ -3,9 +3,9 @@ repos:
     hooks:
       - id: dprint-fmt
         name: format with dprint
-        entry: dprint fmt --allow-no-files
+        entry: dprint fmt
         language: unsupported
-        files: \.(js|json|jsonc|md|toml|yaml)$
+        files: \.(css|html|js|json|jsonc|md|py|toml|ts|xml|yaml)$
 
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v6.0.0
