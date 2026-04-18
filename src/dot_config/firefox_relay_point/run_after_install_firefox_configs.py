@@ -1,4 +1,5 @@
 import os
+import subprocess
 import sys
 from pathlib import Path
 
@@ -9,6 +10,9 @@ def main():
 
     match sys.platform:
         case "linux":
+            if system_is_wsl():
+                print("[Firefox configs] You are in WSL: Skip")
+                return
             profiles_path = Path(os.environ["XDG_CONFIG_HOME"]) / "mozilla/firefox"
         case "win32":
             profiles_path = Path(os.environ["APPDATA"]) / r"Mozilla\Firefox\Profiles"
@@ -31,6 +35,15 @@ def main():
         (chrome_dst_dir := profile / "chrome").mkdir(exist_ok=True)
         for p in chrome_src_files:
             p.copy(chrome_dst_dir / p.name)
+
+
+def system_is_wsl() -> bool:
+    return subprocess.run(
+        ["uname", "-r"],
+        capture_output=True,
+        check=True,
+        encoding="utf_8",
+    ).stdout.strip().endswith("-microsoft-standard-WSL2")
 
 
 if __name__ == "__main__":
