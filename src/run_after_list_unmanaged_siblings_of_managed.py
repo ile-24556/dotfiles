@@ -40,7 +40,10 @@ def collect_non_root_files(paths: Iterable[str]) -> Generator[Path]:
             yield p
 
 
-def collect_siblings(unmanaged: Iterable[Path], managed: Iterable[Path]) -> Generator[Path]:
+def collect_siblings(
+    unmanaged: Iterable[Path],
+    managed: Iterable[Path],
+) -> Generator[Path]:
     """Collect unmanaged paths that shares their parent with a managed path."""
     managed = tuple(managed)
     for um in unmanaged:
