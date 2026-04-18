@@ -2,7 +2,7 @@
 
 cd (mktemp -d)
 
-cp $XDG_DATA_HOME/chezmoi/.dprint.jsonc
+cp $XDG_DATA_HOME/chezmoi/.dprint.jsonc .
 
 cp $XDG_CONFIG_HOME/firefox_relay_point/user.js firefox_user.js
 cp $XDG_CONFIG_HOME/fontconfig/fonts.conf font_conf.xml
