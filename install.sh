@@ -89,10 +89,11 @@ install_rust_and_tools() {
     starship \
     uv \
 
+  mise self-update
+  mise install
 }
 
 chezmoi_init_and_apply() {
-  mise use -g chezmoi@2
   if [[ "${GITHUB_ACTIONS:-}" == 'true' ]]; then
     chezmoi init --apply --source-path .
   else
@@ -101,9 +102,6 @@ chezmoi_init_and_apply() {
 }
 
 start_developing_dotfiles() {
-  mise self-update
-  mise install
-
   if ! command -v pre-commit; then
     uv tool install pre-commit
   fi
