@@ -1,5 +1,6 @@
 {
   "typescript": {
+    "lineWidth": 500,
   },
   "json": {
     "jsonTrailingCommaFiles": [
