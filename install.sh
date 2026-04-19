@@ -100,7 +100,7 @@ chezmoi_init_and_apply() {
   fi
 }
 
-start_developping_dotfiles() {
+start_developing_dotfiles() {
   mise self-update
   mise install
 
@@ -122,7 +122,7 @@ main() {
   add_paths
   install_rust_and_tools
   chezmoi_init_and_apply
-  start_developping_dotfiles
+  start_developing_dotfiles
 }
 
 main
