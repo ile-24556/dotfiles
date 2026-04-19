@@ -17,6 +17,8 @@
   },
   "markup": {
     "associations": [
+      "**/*.html",
+      "**/*.xml",
       "**/fontconfig/**/*.conf",
     ],
   },
