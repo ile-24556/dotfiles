@@ -27,6 +27,12 @@ sansSerif = [
   "IBM Plex Sans JP",
   "Noto Color Emoji",
 ]
+uiSansSerif = [
+  "Adwaita Sans",
+  {{if eq .chezmoi.os "windows"}}"Inter Variable Text"{{else}}"Inter Variable"{{end}},
+  "IBM Plex Sans JP",
+  "Noto Color Emoji",
+]
 monospace = [
   "Berkeley Mono Trial",
   "JetBrains Mono",

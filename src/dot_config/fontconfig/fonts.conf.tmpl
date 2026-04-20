@@ -72,7 +72,7 @@
   <alias>
     <family>ui-sans-serif</family>
     <prefer>
-      <family>my-sans-serif</family>
+      <family>my-ui-sans-serif</family>
     </prefer>
   </alias>
   <alias>
@@ -102,6 +102,12 @@
     <family>my-monospace</family>
     <prefer>
       <family>{{.fonts.monospace | join "</family>\n      <family>"}}</family>
+    </prefer>
+  </alias>
+  <alias binding="strong">
+    <family>my-ui-sans-serif</family>
+    <prefer>
+      <family>{{.fonts.uiSansSerif | join "</family>\n      <family>"}}</family>
     </prefer>
   </alias>
 </fontconfig>
