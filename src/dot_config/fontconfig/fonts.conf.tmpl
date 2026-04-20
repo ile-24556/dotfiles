@@ -36,6 +36,19 @@
     </rejectfont>
   </selectfont>
 
+  <!-- VS Code -->
+  <match>
+    <test name="prgname">
+      <string>code</string>
+    </test>
+    <test name="family">
+      <string>sans-serif</string>
+    </test>
+    <edit name="family" mode="assign">
+      <string>ui-sans-serif</string>
+    </edit>
+  </match>
+
   <!--
     Resolve generic font families into my custom families.
   -->
