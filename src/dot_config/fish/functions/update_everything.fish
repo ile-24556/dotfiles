@@ -5,7 +5,7 @@ function update_everything
     update_cargo_bins
 
     mise upgrade
-    chezmoi update
+    chezmoi update --init
 end
 
 function update_cargo_bins
