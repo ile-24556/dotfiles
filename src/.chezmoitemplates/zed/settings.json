@@ -28,8 +28,9 @@
   ],
   "ui_font_features": {
     "tnum": true, // Inter Variable: tabular numbers
-    "ss01": true, // Inter Variable: open digits
-    "ss02": true, // Inter Variable: disambiguation w/ zero
+    "cv03": true, // Inter Variable: open six
+    "cv04": true, // Inter Variable: open nine
+    "cv05": true, // Inter Variable: lower case l with tail
   },
   "ui_font_size": 21,
 
