@@ -6,6 +6,7 @@ repos:
         entry: dprint fmt
         language: unsupported
         files: \.(css|html|js|json|jsonc|md|py|toml|ts|xml|yaml)$
+        exclude: ^src/\.chezmoitemplates/zed/settings\.json$
 
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v6.0.0
