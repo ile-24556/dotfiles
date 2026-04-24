@@ -1,4 +1,4 @@
-# Install my favourite fonts
+# Install my favorite fonts
 
 function main
     prepare_clean_fonts_dir
@@ -15,7 +15,7 @@ end
 
 function prepare_clean_fonts_dir
     if string match -q '*-WSL2' (uname -r)
-        set -g FONTS_DIR /mnt/c/Users/Public/Downloads/favourite_fonts
+        set -g FONTS_DIR /mnt/c/Users/Public/Downloads/favorite_fonts
     else
         set -g FONTS_DIR $XDG_DATA_HOME/fonts
     end
