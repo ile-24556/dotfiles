@@ -59,18 +59,22 @@ function ibm_plex
 
     download_font plex-serif-variable
     unzip plex-serif-variable.zip 'plex-serif-variable/complete/ttf/*'
-    mv plex-serif-variable $FONTS_DIR
+    rm -rf $FONTS_DIR/ibm-plex-serif-variable
+    mv plex-serif-variable $FONTS_DIR/ibm-plex-serif-variable
 
     download_font plex-sans-variable
     unzip plex-sans-variable.zip 'fonts/complete/ttf/*'
-    mv fonts $FONTS_DIR/plex-sans-variable
+    rm -rf $FONTS_DIR/ibm-plex-sans-variable
+    mv fonts $FONTS_DIR/ibm-plex-sans-variable
 
     download_font plex-sans-condensed
-    unzip ibm-plex-sans-condensed.zip 'ibm-plex-sans-condensed/fonts/complete/otf/*'
+    unzip ibm-plex-sans-condensed.zip 'ibm-plex-sans-condensed/fonts/complete/ttf/*'
+    rm -rf $FONTS_DIR/ibm-plex-sans-condensed
     mv ibm-plex-sans-condensed/fonts $FONTS_DIR/ibm-plex-sans-condensed
 
     download_font plex-mono
-    unzip ibm-plex-mono.zip 'ibm-plex-mono/fonts/complete/otf/*'
+    unzip ibm-plex-mono.zip 'ibm-plex-mono/fonts/complete/ttf/*'
+    rm -rf $FONTS_DIR/ibm-plex-mono
     mv ibm-plex-mono/fonts $FONTS_DIR/ibm-plex-mono
 end
 
@@ -78,7 +82,8 @@ function source_code_pro
     cd (mktemp -d)
 
     gh release -R adobe-fonts/source-code-pro download -p 'VF-source-code-VF-*.zip'
-    unzip VF-source-code-VF-*.zip 'VF/*.otf'
+    unzip VF-source-code-VF-*.zip 'VF/*.ttf'
+    rm -rf $FONTS_DIR/source-code-pro
     mv VF $FONTS_DIR/source-code-pro
 end
 
@@ -87,6 +92,7 @@ function inter_variable
     gh release -R rsms/inter download -p 'Inter-*.*[0-9].zip'
     mkdir InterVariable
     unzip Inter-*.zip 'InterVariable*.ttf' -d InterVariable
+    rm -rf $FONTS_DIR/InterVariable
     mv InterVariable $FONTS_DIR
 end
 
