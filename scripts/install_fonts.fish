@@ -52,8 +52,11 @@ function ibm_plex
     end
 
     download_font plex-sans-jp
-    unzip ibm-plex-sans-jp.zip 'ibm-plex-sans-jp/fonts/complete/otf/unhinted/*'
-    mv ibm-plex-sans-jp/fonts $FONTS_DIR/ibm-plex-sans-jp
+    unzip ibm-plex-sans-jp.zip 'ibm-plex-sans-jp/fonts/complete/*'
+    rm -rf $FONTS_DIR/ibm-plex-sans-jp
+    mkdir -p $FONTS_DIR/ibm-plex-sans-jp
+    mv ibm-plex-sans-jp/fonts/complete/ttf/unhinted $FONTS_DIR/ibm-plex-sans-jp/0_ttf_unhinted
+    mv ibm-plex-sans-jp/fonts/complete/otf/unhinted $FONTS_DIR/ibm-plex-sans-jp/1_otf_unhinted
 
     download_font plex-serif-variable
     unzip plex-serif-variable.zip 'plex-serif-variable/complete/ttf/*'
