@@ -5,7 +5,7 @@ function main
 
     jetbrains_mono
     ibm_plex
-    source_code_pro
+    adobe_source_fonts
     inter_variable
     nerd_fonts
     others_from_google_fonts
@@ -78,13 +78,23 @@ function ibm_plex
     mv ibm-plex-mono/fonts $FONTS_DIR/ibm-plex-mono
 end
 
-function source_code_pro
+function adobe_source_fonts
     cd (mktemp -d)
+
+    gh release -R adobe-fonts/source-sans download -p 'VF-source-sans-*.zip'
+    unzip VF-source-sans-*.zip
+    rm -rf $FONTS_DIR/SourceSansVF
+    mv VF $FONTS_DIR/SourceSansVF
+
+    gh release -R adobe-fonts/source-serif download -p 'source-serif-*_Desktop.zip'
+    unzip source-serif-*_Desktop.zip 'source-serif-*_Desktop/VAR/SourceSerif4Variable-*.ttf'
+    rm -rf $FONTS_DIR/SourceSerifVF
+    mv source-serif-*_Desktop/VAR $FONTS_DIR/SourceSerifVF
 
     gh release -R adobe-fonts/source-code-pro download -p 'VF-source-code-VF-*.zip'
     unzip VF-source-code-VF-*.zip 'VF/*.ttf'
-    rm -rf $FONTS_DIR/source-code-pro
-    mv VF $FONTS_DIR/source-code-pro
+    rm -rf $FONTS_DIR/SourceCodeProVF
+    mv VF $FONTS_DIR/SourceCodeProVF
 end
 
 function inter_variable
