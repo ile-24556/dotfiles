@@ -84,12 +84,12 @@ function adobe_source_fonts
     cd (mktemp -d)
 
     gh release -R adobe-fonts/source-sans download -p 'VF-source-sans-*.zip'
-    unzip VF-source-sans-*.zip 'VF/SourceSans*.ttf'
+    unzip VF-source-sans-*.zip 'VF/*.ttf'
     rm -rf $FONTS_DIR/SourceSans3VF
     mv VF $FONTS_DIR/SourceSans3VF
 
     gh release -R adobe-fonts/source-serif download -p 'source-serif-*_Desktop.zip'
-    unzip source-serif-*_Desktop.zip 'source-serif-*_Desktop/VAR/SourceSerif4Variable-*.ttf'
+    unzip source-serif-*_Desktop.zip 'source-serif-*_Desktop/VAR/*.ttf'
     rm -rf $FONTS_DIR/SourceSerif4Variable
     mv source-serif-*_Desktop/VAR $FONTS_DIR/SourceSerif4Variable
 
@@ -101,7 +101,7 @@ end
 
 function inter_variable
     cd (mktemp -d)
-    gh release -R rsms/inter download -p 'Inter-*.*[0-9].zip'
+    gh release -R rsms/inter download -p 'Inter-*.zip'
     mkdir InterVariable
     unzip Inter-*.zip 'InterVariable*.ttf' -d InterVariable
     rm -rf $FONTS_DIR/InterVariable
