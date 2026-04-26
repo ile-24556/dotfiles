@@ -36,7 +36,7 @@ function jetbrains_mono
 
     gh release -R JetBrains/JetBrainsMono download -p 'JetBrainsMono-*.zip'
     unzip JetBrainsMono-*.zip 'fonts/variable/*'
-    mv fonts $FONTS_DIR/jetbrains-mono
+    mv fonts $FONTS_DIR/JetBrainsMono
 end
 
 function ibm_plex
@@ -54,30 +54,30 @@ function ibm_plex
 
     download_font plex-sans-jp
     unzip ibm-plex-sans-jp.zip 'ibm-plex-sans-jp/fonts/complete/*'
-    rm -rf $FONTS_DIR/ibm-plex-sans-jp
-    mkdir -p $FONTS_DIR/ibm-plex-sans-jp
-    mv ibm-plex-sans-jp/fonts/complete/ttf/unhinted $FONTS_DIR/ibm-plex-sans-jp/0_ttf_unhinted
-    mv ibm-plex-sans-jp/fonts/complete/otf/unhinted $FONTS_DIR/ibm-plex-sans-jp/1_otf_unhinted
+    rm -rf $FONTS_DIR/IBMPlexSansJP
+    mkdir -p $FONTS_DIR/IBMPlexSansJP
+    mv ibm-plex-sans-jp/fonts/complete/ttf/unhinted $FONTS_DIR/IBMPlexSansJP/0_ttf_unhinted
+    mv ibm-plex-sans-jp/fonts/complete/otf/unhinted $FONTS_DIR/IBMPlexSansJP/1_otf_unhinted
 
     download_font plex-serif-variable
     unzip plex-serif-variable.zip 'plex-serif-variable/complete/ttf/*'
-    rm -rf $FONTS_DIR/ibm-plex-serif-variable
-    mv plex-serif-variable $FONTS_DIR/ibm-plex-serif-variable
+    rm -rf $FONTS_DIR/IBMPlexSerifVar
+    mv plex-serif-variable $FONTS_DIR/IBMPlexSerifVar
 
     download_font plex-sans-variable
     unzip plex-sans-variable.zip 'fonts/complete/ttf/*'
-    rm -rf $FONTS_DIR/ibm-plex-sans-variable
-    mv fonts $FONTS_DIR/ibm-plex-sans-variable
+    rm -rf $FONTS_DIR/IBMPlexSansVar
+    mv fonts $FONTS_DIR/IBMPlexSansVar
 
     download_font plex-sans-condensed
     unzip ibm-plex-sans-condensed.zip 'ibm-plex-sans-condensed/fonts/complete/ttf/*'
-    rm -rf $FONTS_DIR/ibm-plex-sans-condensed
-    mv ibm-plex-sans-condensed/fonts $FONTS_DIR/ibm-plex-sans-condensed
+    rm -rf $FONTS_DIR/IBMPlexSansCond
+    mv ibm-plex-sans-condensed/fonts $FONTS_DIR/IBMPlexSansCond
 
     download_font plex-mono
     unzip ibm-plex-mono.zip 'ibm-plex-mono/fonts/complete/ttf/*'
-    rm -rf $FONTS_DIR/ibm-plex-mono
-    mv ibm-plex-mono/fonts $FONTS_DIR/ibm-plex-mono
+    rm -rf $FONTS_DIR/IBMPlexMono
+    mv ibm-plex-mono/fonts $FONTS_DIR/IBMPlexMono
 end
 
 function adobe_source_fonts
@@ -85,18 +85,18 @@ function adobe_source_fonts
 
     gh release -R adobe-fonts/source-sans download -p 'VF-source-sans-*.zip'
     unzip VF-source-sans-*.zip 'VF/SourceSans*.ttf'
-    rm -rf $FONTS_DIR/SourceSansVF
-    mv VF $FONTS_DIR/SourceSansVF
+    rm -rf $FONTS_DIR/SourceSans3VF
+    mv VF $FONTS_DIR/SourceSans3VF
 
     gh release -R adobe-fonts/source-serif download -p 'source-serif-*_Desktop.zip'
     unzip source-serif-*_Desktop.zip 'source-serif-*_Desktop/VAR/SourceSerif4Variable-*.ttf'
-    rm -rf $FONTS_DIR/SourceSerifVF
-    mv source-serif-*_Desktop/VAR $FONTS_DIR/SourceSerifVF
+    rm -rf $FONTS_DIR/SourceSerif4Variable
+    mv source-serif-*_Desktop/VAR $FONTS_DIR/SourceSerif4Variable
 
     gh release -R adobe-fonts/source-code-pro download -p 'VF-source-code-VF-*.zip'
     unzip VF-source-code-VF-*.zip 'VF/*.ttf'
-    rm -rf $FONTS_DIR/SourceCodeProVF
-    mv VF $FONTS_DIR/SourceCodeProVF
+    rm -rf $FONTS_DIR/SourceCodeVF
+    mv VF $FONTS_DIR/SourceCodeVF
 end
 
 function inter_variable
@@ -111,7 +111,7 @@ end
 function nerd_fonts
     cd (mktemp -d)
 
-    set -l dest $FONTS_DIR/nerd-fonts
+    set -l dest $FONTS_DIR/NerdFonts
     rm -rf $dest
     mkdir -p $dest
 
