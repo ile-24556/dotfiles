@@ -84,7 +84,7 @@ function adobe_source_fonts
     cd (mktemp -d)
 
     gh release -R adobe-fonts/source-sans download -p 'VF-source-sans-*.zip'
-    unzip VF-source-sans-*.zip
+    unzip VF-source-sans-*.zip 'VF/SourceSans*.ttf'
     rm -rf $FONTS_DIR/SourceSansVF
     mv VF $FONTS_DIR/SourceSansVF
 
