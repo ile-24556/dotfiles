@@ -33,5 +33,3 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: fish scripts/install_fonts.fish
-      - name: Reinstall fonts
-        run: fish scripts/install_fonts.fish
