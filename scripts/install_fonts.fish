@@ -3,14 +3,16 @@
 function main
     prepare_fonts_dir
 
-    jetbrains_mono
-    ibm_plex
-    adobe_source_fonts
-    inter_variable
-    nerd_fonts
-    others_from_google_fonts
+    if test (status current-command) = fish
+        jetbrains_mono
+        ibm_plex
+        adobe_source_fonts
+        inter_variable
+        nerd_fonts
+        others_from_google_fonts
 
-    refresh_font_cache
+        refresh_font_cache
+    end
 end
 
 function prepare_fonts_dir
