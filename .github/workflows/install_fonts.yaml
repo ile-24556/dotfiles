@@ -30,6 +30,8 @@ jobs:
       - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
       - uses: ile-24556/install-fish-shell-from-github@d662a3c452b76f5d2b00b28cac074dcd9a36e4f3 # v1.0.1
       - name: Install fonts
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: fish scripts/install_fonts.fish
       - name: Reinstall fonts
         run: fish scripts/install_fonts.fish
