@@ -33,3 +33,6 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: fish scripts/install_fonts.fish
+      - name: List user-installed fonts
+        run: |
+          tree -a "${XDG_DATA_HOME:-$HOME/.local/share}/fonts"
