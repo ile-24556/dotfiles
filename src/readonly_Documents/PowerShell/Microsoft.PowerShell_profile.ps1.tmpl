@@ -18,7 +18,7 @@ Set-Alias -Name ex -Value explorer
 function Update-Everything() {
     winget upgrade
 
-    cargo binstall -- (-split (cargo install --list | rg '\.\d+:$') | rg -v 'v\d+\.\d+\.\d+' | rg -v deno)
+    cargo binstall -- (-split (cargo install --list | rg '\.\d+:$') | rg -v 'v\d+\.\d+\.\d+' | rg -v mise)
 
     if (Get-Command mise -ErrorAction SilentlyContinue) {
         mise self-update
