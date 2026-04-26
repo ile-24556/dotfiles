@@ -19,7 +19,11 @@ function prepare_fonts_dir
     if string match -q '*-WSL2' (uname -r)
         set -g FONTS_DIR /mnt/c/Users/Public/Downloads/favorite_fonts
     else
-        set -g FONTS_DIR $XDG_DATA_HOME/fonts
+        if test -n "$XDG_DATA_HOME"
+            set -g FONTS_DIR $XDG_DATA_HOME/fonts
+        else
+            set -g FONTS_DIR $HOME/.local/share/fonts
+        end
     end
     mkdir -p $FONTS_DIR
 end
