@@ -5,6 +5,7 @@ on:
       - main
     paths:
       - scripts/install_fonts.fish
+      - .github/workflows/install_fonts.yaml
   pull_request_target:
     branches:
       - main

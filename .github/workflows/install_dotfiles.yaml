@@ -6,6 +6,7 @@ on:
     paths:
       - install.ps1
       - install.sh
+      - .github/workflows/install_dotfiles.yaml
   pull_request_target:
     branches:
       - main
