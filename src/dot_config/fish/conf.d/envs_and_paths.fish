@@ -8,6 +8,7 @@ end
 
 # Arugument order matters; It is like LIFO: uv, rustup, mise
 prepend_path \
+    $HOME/.deno/bin \
     $HOME/go/bin \
     $HOME/.local/bin \
     $HOME/.cargo/bin \
