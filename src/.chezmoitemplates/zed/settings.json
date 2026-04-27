@@ -17,10 +17,7 @@
   "buffer_font_fallbacks": [
     {{rest .fonts.monospace | quoteList | join ",\n    "}},
   ],
-  "buffer_font_features": {
-    "zero": true, // JetBrains Mono: slashed zero
-  },
-  "buffer_font_size": 24,
+  "buffer_font_size": 21,
 
   "ui_font_family": {{first .fonts.sansSerif | quote}},
   "ui_font_fallbacks": [
@@ -28,11 +25,9 @@
   ],
   "ui_font_features": {
     "tnum": true, // Inter Variable: tabular numbers
-    "cv03": true, // Inter Variable: open six
-    "cv04": true, // Inter Variable: open nine
     "cv05": true, // Inter Variable: lower case l with tail
   },
-  "ui_font_size": 21,
+  "ui_font_size": 18,
 
   "terminal": {
     "font_family": {{first .fonts.terminal | quote}},
