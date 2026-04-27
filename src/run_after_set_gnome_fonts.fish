@@ -1,7 +1,7 @@
-if not command -v gsettings
+if not command -v gsettings >/dev/null
     return
 end
-if not gsettings list-schemas | grep -F 'org.gnome.desktop.interface'
+if not gsettings list-schemas | grep -Fq 'org.gnome.desktop.interface'
     return
 end
 
