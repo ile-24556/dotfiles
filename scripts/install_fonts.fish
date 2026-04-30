@@ -108,8 +108,20 @@ function inter_variable
     gh release -R rsms/inter download -p 'Inter-*.zip'
     mkdir InterVariable
     unzip Inter-*.zip 'InterVariable*.ttf' -d InterVariable
-    rm -rf $FONTS_DIR/InterVariable
-    mv InterVariable $FONTS_DIR
+
+    function build_ui_fonts
+        # cv05: lower case L with tail
+        uvx --from opentype-feature-freezer pyftfeatfreeze \
+            --features 'cv05,tnum' \
+            --suffix --usesuffix UI \
+            $argv[1] $argv[2]
+    end
+    mkdir InterVariableUI
+    build_ui_fonts InterVariable/InterVariable.ttf InterVariableUI/InterVariableUI.ttf
+    build_ui_fonts InterVariable/InterVariable-Italic.ttf InterVariableUI/InterVariableUI-Italic.ttf
+
+    rm -rf $FONTS_DIR/InterVariable{,UI}
+    mv InterVariable{,UI} $FONTS_DIR
 end
 
 function nerd_fonts
