@@ -19,14 +19,10 @@
   ],
   "buffer_font_size": 21,
 
-  "ui_font_family": {{first .fonts.sansSerif | quote}},
+  "ui_font_family": {{first .fonts.uiSansSerif | quote}},
   "ui_font_fallbacks": [
     {{rest .fonts.sansSerif | quoteList | join ",\n    "}},
   ],
-  "ui_font_features": {
-    "tnum": true, // Inter Variable: tabular numbers
-    "cv05": true, // Inter Variable: lower case l with tail
-  },
   "ui_font_size": 18,
 
   "terminal": {
