@@ -32,7 +32,7 @@ function refresh_font_cache
     if string match -q '*-WSL2' (uname -r)
         return
     end
-    fc-cache -rv
+    fc-cache -rv $FONTS_DIR
 end
 
 function jetbrains_mono
