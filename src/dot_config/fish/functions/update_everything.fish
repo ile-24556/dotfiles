@@ -9,7 +9,7 @@ function update_everything
 end
 
 function update_cargo_bins
-    set -l bins (cargo install --list | rg '\.\d+:$' | rg -Fv mise | cut -d ' ' -f 1)
-    cargo binstall --disable-strategies compile -- $bins
     mise self-update
+    cargo binstall --disable-strategies compile -- \
+        (cargo install --list | rg '\.\d+:$' | cut -d ' ' -f 1)
 end
