@@ -36,16 +36,19 @@
     </rejectfont>
   </selectfont>
 
-  <!-- VS Code -->
+  <!--
+    Use tabular numbers in VS Code UI.
+    The default UI font follows `org.gnome.desktop.interface font-name`.
+  -->
   <match>
     <test name="prgname">
       <string>code</string>
     </test>
     <test name="family">
-      <string>sans-serif</string>
+      <string>ui-sans-serif</string>
     </test>
     <edit name="family" mode="assign">
-      <string>my-ui-sans-serif</string>
+      <string>my-tabular-ui</string>
     </edit>
   </match>
 
@@ -73,7 +76,7 @@
   <alias>
     <family>system-ui</family>
     <prefer>
-      <family>my-ui-sans-serif</family>
+      <family>my-sans-serif</family>
     </prefer>
   </alias>
   <alias>
@@ -85,7 +88,7 @@
   <alias>
     <family>ui-sans-serif</family>
     <prefer>
-      <family>my-ui-sans-serif</family>
+      <family>my-sans-serif</family>
     </prefer>
   </alias>
   <alias>
@@ -117,9 +120,9 @@
     </prefer>
   </alias>
   <alias binding="strong">
-    <family>my-ui-sans-serif</family>
+    <family>my-tabular-ui</family>
     <prefer>
-      <family>{{.fonts.uiSansSerif | join "</family>\n      <family>"}}</family>
+      <family>{{.fonts.tabularUI | join "</family>\n      <family>"}}</family>
     </prefer>
   </alias>
 </fontconfig>

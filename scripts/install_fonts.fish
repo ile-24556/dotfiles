@@ -113,15 +113,15 @@ function inter_variable
         # cv05: lower case L with tail
         uvx --from opentype-feature-freezer pyftfeatfreeze \
             --features 'cv05,tnum' \
-            --suffix --usesuffix UI \
+            --suffix --usesuffix Tabular \
             $argv[1] $argv[2]
     end
-    mkdir InterVariableUI
-    build_ui_fonts InterVariable/InterVariable.ttf InterVariableUI/InterVariableUI.ttf
-    build_ui_fonts InterVariable/InterVariable-Italic.ttf InterVariableUI/InterVariableUI-Italic.ttf
+    mkdir InterVariableTabular
+    build_ui_fonts InterVariable/InterVariable.ttf InterVariableTabular/InterVariableTabular.ttf
+    build_ui_fonts InterVariable/InterVariable-Italic.ttf InterVariableTabular/InterVariableTabular-Italic.ttf
 
-    rm -rf $FONTS_DIR/InterVariable{,UI}
-    mv InterVariable{,UI} $FONTS_DIR
+    rm -rf $FONTS_DIR/InterVariable{,Tabular}
+    mv InterVariable{,Tabular} $FONTS_DIR
 end
 
 function nerd_fonts

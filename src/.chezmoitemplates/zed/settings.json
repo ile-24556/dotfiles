@@ -19,9 +19,9 @@
   ],
   "buffer_font_size": 21,
 
-  "ui_font_family": {{first .fonts.uiSansSerif | quote}},
+  "ui_font_family": {{first .fonts.tabularUI | quote}},
   "ui_font_fallbacks": [
-    {{rest .fonts.sansSerif | quoteList | join ",\n    "}},
+    {{rest .fonts.tabularUI | quoteList | join ",\n    "}},
   ],
   "ui_font_size": 18,
 
