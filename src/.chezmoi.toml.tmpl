@@ -21,30 +21,28 @@ isWSL = {{if and (eq .chezmoi.os "linux") (contains "-microsoft-standard-WSL2" .
 serif = [
   "Source Serif 4 Variable",
   "Noto Serif CJK JP",
-  "Noto Emoji",
+  "serif",
 ]
 sansSerif = [
   {{if eq .chezmoi.os "windows"}}"Inter Variable Text"{{else}}"Inter Variable"{{end}},
   "IBM Plex Sans JP",
-  "Noto Sans Math",
-  "Noto Color Emoji",
+  "sans-serif",
 ]
 uiSansSerif = [
   {{if eq .chezmoi.os "windows"}}"Inter Variable UI Text"{{else}}"Inter Variable UI"{{end}},
   "IBM Plex Sans JP",
-  "Noto Sans Math",
-  "Noto Color Emoji",
+  "sans-serif",
 ]
 monospace = [
   "Berkeley Mono",
   {{if eq .chezmoi.os "windows"}}"Inter Variable Text"{{else}}"Inter Variable"{{end}},
   "IBM Plex Sans JP",
-  "Noto Color Emoji",
+  "monospace",
 ]
 terminal = [
   "Berkeley Mono",
   "JetBrainsMono Nerd Font",
   {{if eq .chezmoi.os "windows"}}"Inter Variable Text"{{else}}"Inter Variable"{{end}},
   "IBM Plex Sans JP",
-  "Noto Color Emoji",
+  "monospace",
 ]
