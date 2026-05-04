@@ -147,6 +147,8 @@ function others_from_google_fonts
     curl -fsS $base_url'ofl/opensans/OpenSans-Italic%5Bwdth%2Cwght%5D.ttf' -o 'OpenSans-Italic[wdth,wght].ttf'
     curl -fsS $base_url'ofl/notoemoji/NotoEmoji%5Bwght%5D.ttf' -o 'NotoEmoji[wght].ttf'
     curl -fsS $base_url'ofl/notocoloremoji/NotoColorEmoji-Regular.ttf' -o 'NotoColorEmoji-Regular.ttf'
+    curl -fsS $base_url'ofl/merriweather/Merriweather%5Bopsz%2Cwdth%2Cwght%5D.ttf' -o 'Merriweather[opsz,wdth,wght].ttf'
+    curl -fsS $base_url'ofl/merriweather/Merriweather-Italic%5Bopsz%2Cwdth%2Cwght%5D.ttf' -o 'Merriweather-Italic[opsz,wdth,wght].ttf'
 end
 
 main
