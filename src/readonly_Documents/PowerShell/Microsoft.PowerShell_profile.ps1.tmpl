@@ -23,7 +23,7 @@ function Update-Everything() {
     }
 
     cargo binstall --disable-strategies compile -- `
-        (-split (cargo install --list | rg '\.\d+:$') | rg -v 'v\d+\.\d+\.\d+')
+        (-split (cargo install --list | rg '\.\d+:$') | rg -v 'v\d+\.\d+\.\d+' | rg --crlf -Fvx 'mise')
 
     chezmoi update --init
 }
