@@ -7,7 +7,16 @@ end
 
 sudo apt install -- golang shellcheck tree
 
-cargo binstall --disable-strategies compile -- fd-find deno
+cargo binstall --disable-strategies compile -- \
+    deno \
+    du-dust \
+    eza \
+    fd-find \
+    hyperfine \
+    mise \
+    oxipng \
+    yazi-fm \
+    zoxide
 
 mise install
 
