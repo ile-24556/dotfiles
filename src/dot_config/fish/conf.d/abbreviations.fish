@@ -19,6 +19,7 @@ abbr --add gbd -- git branch -d
 abbr --add gbl -- git blame
 abbr --add gc -- git commit
 abbr --add gca -- git commit --amend
+abbr --add gcf -- git commit --fixup
 abbr --add gd -- git diff
 abbr --add gdc -- git diff --cached
 abbr --add gds -- git diff --stat
