@@ -67,8 +67,8 @@
       "font": {
         "cellHeight": "1.2",
         "colorGlyphs": true,
-        "face": {{.fonts.terminal | join ", " | quote}},
-        "size": 14,
+        "face": "Berkeley Mono, JetBrainsMono Nerd Font, Inter Variable Text, IBM Plex Sans JP, Noto Color Emoji",
+        "size": 16,
         "weight": "normal"
       },
       "opacity": 100,
