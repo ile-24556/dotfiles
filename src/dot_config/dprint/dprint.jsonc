@@ -2,6 +2,7 @@
   "typescript": {
   },
   "json": {
+    "trailingCommas": "jsonc",
     "jsonTrailingCommaFiles": [
       "**/.vscode/settings.json",
     ],
