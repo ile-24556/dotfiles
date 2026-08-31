@@ -1,6 +1,5 @@
 {
   "typescript": {
-    "lineWidth": 500,
     "quoteStyle": "preferDouble",
   },
   "json": {
@@ -19,8 +18,6 @@
   },
   "markup": {
     "associations": [
-      "**/*.html",
-      "**/*.xml",
       "**/fontconfig/**/*.conf",
     ],
   },
