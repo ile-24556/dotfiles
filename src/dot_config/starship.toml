@@ -1,4 +1,4 @@
-format = '$all$shell$line_break$character'
+format = "$all$shell$line_break$character"
 
 [aws]
 symbol = "  "
@@ -160,12 +160,12 @@ symbol = "󱘗 "
 symbol = " "
 
 [shell]
-bash_indicator = '🐃'
-fish_indicator = '🐟'
-pwsh_indicator = ''
-zsh_indicator = '🦓'
-unknown_indicator = '🤔'
-style = 'blue'
+bash_indicator = "🐃"
+fish_indicator = "🐟"
+pwsh_indicator = ""
+zsh_indicator = "🦓"
+unknown_indicator = "🤔"
+style = "blue"
 disabled = false
 
 [swift]
