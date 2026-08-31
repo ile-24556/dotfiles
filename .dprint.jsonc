@@ -1,6 +1,7 @@
 {
   "typescript": {
     "lineWidth": 500,
+    "quoteStyle": "preferDouble",
   },
   "json": {
     "trailingCommas": "jsonc",
